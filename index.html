@@ -476,6 +476,28 @@ html,body{background:var(--site-blue)}
 @media(max-width:360px){
   .pm-stamp{width:112px;right:5%;bottom:62px}
 }
+
+/* V12 — SVG flight path: the aircraft follows the drawn arc */
+.hero-arc.flight-scripted path.arc{
+  transition:none!important;
+  stroke-dasharray:var(--flight-length,1600)!important;
+  stroke-dashoffset:var(--flight-offset,1600)!important;
+}
+.hero-aircraft.flight-active{
+  left:0;
+  top:0;
+  right:auto;
+  opacity:0;
+  animation:none!important;
+  transform:translate(-50%,-50%) rotate(0deg);
+  transform-origin:center center;
+  will-change:left,top,transform,opacity;
+  pointer-events:none;
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-arc.flight-scripted path.arc{stroke-dashoffset:0!important}
+  .hero-aircraft.flight-active{will-change:auto}
+}
 </style>
 <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/>
 <script id="wix-site-script" src="https://manage.wix.com/_api/headless-business-setup/v1/headless-business/site-script.js" data-client-id="0ecdf3b9-29a2-4abe-86c0-8354cf4f671f" async></script></head>
@@ -594,6 +616,64 @@ const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 function setMenu(isOpen){mobile.classList.toggle('open',isOpen);body.classList.toggle('menu-open',isOpen);toggle.setAttribute('aria-expanded',String(isOpen));toggle.setAttribute('aria-label',isOpen?'Fechar menu':'Abrir menu')};toggle.addEventListener('click',()=>setMenu(!mobile.classList.contains('open')));mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
 const io=new IntersectionObserver(items=>items.forEach(item=>{if(item.isIntersecting){item.target.classList.add('inview');io.unobserve(item.target)}}),{threshold:.1,rootMargin:'0px 0px -16px 0px'});doc.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 let busy=false;const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));function scroll(){const y=window.scrollY,vh=window.innerHeight,hs=Math.max(hero.offsetHeight-vh,1);let p=clamp(y/hs);stage.style.setProperty('--p',reduce?0:p.toFixed(4));stage.style.setProperty('--hero-zoom',(1.03+(reduce?0:p)*.035).toFixed(4));stage.style.setProperty('--hero-offset',`${(reduce?0:p)*45}px`);nav.classList.toggle('scrolled',y>50);bar.style.transform=`scaleX(${clamp(y/Math.max(doc.documentElement.scrollHeight-vh,1))})`;busy=false}window.addEventListener('scroll',()=>{if(!busy){busy=true;requestAnimationFrame(scroll)}},{passive:true});window.addEventListener('resize',scroll);scroll();
+
+
+/* Draw the route first, then fly the plane along that exact SVG curve. */
+function animateFlight(){
+  const svg=stage.querySelector('.hero-arc');
+  const path=svg?.querySelector('path.arc');
+  const plane=stage.querySelector('.hero-aircraft');
+  if(!svg||!path||!plane||typeof path.getTotalLength!=='function')return;
+  const length=path.getTotalLength();
+  if(!Number.isFinite(length)||length<=0)return;
+  svg.classList.add('flight-scripted');
+  plane.classList.add('flight-active');
+  path.style.setProperty('--flight-length',String(length));
+  path.style.setProperty('--flight-offset',String(reduce?0:length));
+  let progress=reduce?1:0;
+  function positionPlane(t){
+    progress=Math.max(0,Math.min(1,t));
+    const dist=progress*length;
+    const p=path.getPointAtLength(dist);
+    const before=path.getPointAtLength(Math.max(0,dist-3));
+    const after=path.getPointAtLength(Math.min(length,dist+3));
+    const arcRect=svg.getBoundingClientRect();
+    const heroRect=stage.getBoundingClientRect();
+    const scaleX=arcRect.width/1280,scaleY=arcRect.height/420;
+    const x=arcRect.left-heroRect.left+p.x*scaleX;
+    const y=arcRect.top-heroRect.top+p.y*scaleY;
+    const angle=Math.atan2((after.y-before.y)*scaleY,(after.x-before.x)*scaleX)*180/Math.PI;
+    plane.style.left=x+'px';
+    plane.style.top=y+'px';
+    // The source airplane SVG points upward; rotate its nose along the path tangent.
+    plane.style.transform='translate(-50%,-50%) rotate('+(angle+90)+'deg)';
+  }
+  positionPlane(progress);
+  window.addEventListener('resize',()=>positionPlane(progress),{passive:true});
+  if(reduce){plane.style.opacity='1';return;}
+  const drawTime=2500,flightDelay=220,travelTime=5000;
+  const easeOut=t=>1-Math.pow(1-t,3);
+  let start=null;
+  function tick(now){
+    if(start===null)start=now+200;
+    const elapsed=Math.max(0,now-start);
+    const draw=Math.min(1,elapsed/drawTime);
+    path.style.setProperty('--flight-offset',String(length*(1-easeOut(draw))));
+    if(elapsed>=drawTime+flightDelay){
+      const flight=Math.min(1,(elapsed-drawTime-flightDelay)/travelTime);
+      positionPlane(flight);
+      plane.style.opacity='1';
+    }
+    if(elapsed<drawTime+flightDelay+travelTime){
+      requestAnimationFrame(tick);
+    }else{
+      positionPlane(1);
+      path.style.setProperty('--flight-offset','0');
+    }
+  }
+  requestAnimationFrame(tick);
+}
+animateFlight();
 
 const mobileAnchors = {'#destinos':'#m-destinos','#roteiro':'#m-roteiro','#experiencias':'#m-experiencias'};
 const syncAnchors=()=>{const isMobile=window.matchMedia('(max-width:620px)').matches;doc.querySelectorAll('.nav a[href^="#"],.mobile-menu a[href^="#"]').forEach(a=>{const original=a.dataset.originalHash||a.getAttribute('href');a.dataset.originalHash=original;a.setAttribute('href',isMobile?(mobileAnchors[original]||original):original)})};
