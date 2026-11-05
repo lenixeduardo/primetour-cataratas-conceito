@@ -20,9 +20,10 @@
 <meta content="Experiência digital conceitual para viagens sob medida às Cataratas do Iguaçu e do Niágara. Uma apresentação não oficial inspirada no universo PRIMETOUR." name="description"/>
 <title>Duas cataratas. Uma jornada extraordinária. — Conceito Primetour</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link crossorigin="" href="https://videos.pexels.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/>
-<link as="image" href="assets/iguacu.webp" rel="preload"/>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"/><noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/></noscript>
+<link as="image" href="assets/iguacu.webp" rel="preload" fetchpriority="high"/>
+<link as="image" href="assets/niagara_detail.webp" media="(max-width:620px)" rel="preload" fetchpriority="high"/>
 <style>
 :root{--night:#18182F;--deep:#121329;--mid:#30314F;--gold:#DDDDE7;--pale:#EAE9F0;--white:#FAF9F7;--brand-ink:#17182F;--brand-ivory:#F7F6F3;--brand-silver:#CCCDE0;--ease:cubic-bezier(.19,1,.22,1);--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
 *,*:before,*:after{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--night)}body{margin:0;color:var(--white);font-family:var(--sans);background:var(--night);overflow-x:hidden}body.menu-open{overflow:hidden}a{text-decoration:none;color:inherit}button{font:inherit}a,button{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:5px}img,video{display:block;max-width:100%}::selection{background:var(--gold);color:var(--night)}
@@ -583,9 +584,45 @@ html.pt-intro-leaving .pt-intro{opacity:0;pointer-events:none;transition:opacity
 @media(max-width:760px){.pt-intro-fallback img{width:min(77vw,420px)}.pt-intro-control{font-size:11px;padding:10px 13px;top:max(16px,env(safe-area-inset-top))}.pt-intro-hint{font-size:10px;letter-spacing:.04em;bottom:max(22px,env(safe-area-inset-bottom));}}
 @media(prefers-reduced-motion:reduce){.pt-intro{display:none!important}}
 
+/* V14 — contrast, mobile legibility, optical rhythm and consistent branding */
+.pt-intro-control{font-size:12px;min-height:44px}
+.pt-intro-hint{font-size:12px;letter-spacing:.07em;text-shadow:0 1px 8px #0c0734}
+html.pt-intro-leaving .pt-intro{transition:opacity .84s cubic-bezier(.19,1,.22,1)}
+.hero-copy h1,.hero-copy .hero-sub,.hero-copy .eyebrow{text-shadow:0 2px 15px #0807228c}
+.hero-sub{color:#fff!important;opacity:1}
+.prime-footer-details{color:#4a4a55}
+.prime-footer-contact,.prime-footer-dpo{font-weight:400}
+.prime-footer-logo{width:min(420px,78vw);max-height:155px;object-fit:contain}
+.prime-footer-logo-caption{font:500 clamp(12px,1.15vw,16px)/1.4 var(--sans);letter-spacing:.32em;color:#242046;text-align:center;margin:1px 0 0}
+.prime-footer-legal{color:#50515c;font-size:12px;line-height:1.65}
+.magazine-cover figcaption{font-size:12px;color:#e4e0d2db}
+.magazine-kicker,.pm-kicker,.pm-footnote{font-size:12px;line-height:1.55}
+@media(max-width:850px){
+ .hero .eyebrow{font-size:12px;letter-spacing:.17em}
+ .hero-hint,.hero-location{font-size:12px}
+ .magazine-cover figcaption{font-size:12px}
+}
+@media(max-width:620px){
+ .pt-intro-control{font-size:12px;padding:12px 14px}
+ .pt-intro-hint{font-size:12px;max-width:90vw;text-align:center;white-space:normal}
+ .pm-feature span{font-size:12px;line-height:1.35}
+ .pm-footnote,.pm-kicker{font-size:12px}
+ .pm-exp-label>span{font-size:12px;line-height:1.35}
+ .pm-photo figcaption{font-size:12px;letter-spacing:.09em;bottom:13px}
+ .hero .eyebrow{font-size:12px;letter-spacing:.15em}
+ .hero-hint,.hero-location{font-size:12px}
+ .hero-sub{font-size:14px!important;line-height:1.5}
+ .prime-footer-logo{width:min(330px,82vw);max-height:112px}
+ .prime-footer-logo-caption{font-size:12px;letter-spacing:.25em}
+ .prime-footer-contact{margin-top:36px}
+ .prime-footer-legal{font-size:12px;padding:20px 21px}
+ .magazine-section{padding-top:60px;padding-bottom:64px}
+ .pm-experiences{padding-top:54px!important;padding-bottom:62px!important}
+}
+@media(prefers-reduced-motion:reduce){.pt-intro-film{transition:none!important}}
+
 </style>
-<link rel="icon" type="image/png" href="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/>
-<script id="wix-site-script" src="https://manage.wix.com/_api/headless-business-setup/v1/headless-business/site-script.js" data-client-id="0ecdf3b9-29a2-4abe-86c0-8354cf4f671f" async></script></head>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/></head>
 <body>
 <!-- Vinheta institucional — funciona sem modificar a hero existente -->
 <section class="pt-intro" id="pt-intro" role="dialog" aria-modal="true" aria-label="Vinheta de boas-vindas PRIMETOUR">
@@ -737,8 +774,8 @@ html.pt-intro-leaving .pt-intro{opacity:0;pointer-events:none;transition:opacity
 <a class="prime-footer-cta" href="https://primetour.com.br/entre-em-contato/" target="_blank" rel="noopener noreferrer">FALE COM NOSSO TIME</a>
 </section>
 <section class="prime-footer-details" aria-label="Informações de contato PRIMETOUR">
-<img class="prime-footer-logo" src="https://primetour.com.br/wp-content/uploads/elementor/thumbs/LOGO_PRIME_HORIZONTAL-rem55p2x86cx671k94wa76girh5n5bn8a62do7n9e0.png" alt="PRIMETOUR — Viagens &amp; Experiências" width="600" height="170" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false"/>
-<span class="prime-footer-logo-fallback" hidden>PRIMETOUR</span>
+<img class="prime-footer-logo" src="assets/primetour-script-navy.svg" alt="PRIMETOUR" width="1086" height="362" loading="lazy" decoding="async"/>
+<p class="prime-footer-logo-caption">Viagens &amp; Experiências</p>
 <div class="prime-footer-contact">
 <p class="phone"><a href="tel:+551131784760">+55 11 3178-4760</a></p>
 <p>Alameda Joaquim Eugênio de Lima, 424 | 8º Andar</p>
