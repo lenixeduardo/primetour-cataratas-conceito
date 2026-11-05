@@ -313,6 +313,22 @@
 @media(max-width:620px){.prime-footer-hero{min-height:335px;padding:40px 17px 47px}.prime-footer-script{width:min(354px,94vw)}.prime-footer-cta{margin-top:42px;min-height:42px;padding:11px 23px;font-size:14px}.prime-footer-details{padding:35px 16px 35px}.prime-footer-logo{width:min(343px,91vw)}.prime-footer-contact{margin-top:52px;font-size:15.4px;line-height:1.5}.prime-footer-dpo{font-size:15px;line-height:1.45}.prime-footer-dpo.primary{margin-top:24px}.prime-footer-dpo.substitute{margin-top:26px}.prime-footer-legal{padding:18px 20px 22px;font-size:10px}}
 @media(max-width:360px){.prime-footer-contact,.prime-footer-dpo{font-size:14px}.prime-footer-cta{font-size:13px}.prime-footer-hero{min-height:317px}}
 
+
+/* EDITORIAL MAGAZINE COVER — independent responsive section before the footer. */
+.magazine-section{position:relative;isolation:isolate;overflow:hidden;background:radial-gradient(ellipse at 80% 20%,#174a5a77,transparent 48%),linear-gradient(150deg,#061b29 0%,#092738 55%,#031521 100%);padding:clamp(72px,8.5vw,124px) clamp(23px,6vw,92px) clamp(68px,7.5vw,108px);border-top:1px solid #eac17a36}
+.magazine-section:before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent 0%,#edc7800b 100%)}
+.magazine-inner{width:min(100%,1220px);margin-inline:auto;display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:center;gap:clamp(36px,5.7vw,98px)}
+.magazine-intro{max-width:470px}
+.magazine-kicker{margin:0 0 20px;color:var(--gold);font:600 11px/1.5 var(--sans);letter-spacing:.34em;text-transform:uppercase}
+.magazine-intro h2{margin:0;color:var(--white);font:400 clamp(42px,4.6vw,74px)/1.12 var(--serif);letter-spacing:-.048em;text-wrap:balance}
+.magazine-intro h2 em{display:block;font-weight:400;color:var(--pale)}
+.magazine-intro p:not(.magazine-kicker){max-width:400px;margin:25px 0 0;color:#f3efe6ce;font:300 clamp(15px,1.25vw,18px)/1.7 var(--sans)}
+.magazine-line{width:72px;height:1px;background:var(--gold);margin-top:29px}
+.magazine-cover{justify-self:center;width:min(100%,555px);margin:0}
+.magazine-cover img{display:block;width:100%;height:auto;aspect-ratio:1082/1454;object-fit:contain;box-shadow:0 24px 70px #0009,0 0 0 1px #edd2a83d}
+.magazine-cover figcaption{margin-top:17px;font:400 11px/1.55 var(--sans);color:#e4e0d2a1;text-align:center;letter-spacing:.01em}
+@media(max-width:760px){.magazine-section{padding:68px 22px 75px}.magazine-inner{grid-template-columns:1fr;gap:36px}.magazine-intro{max-width:480px;text-align:center;margin:auto}.magazine-intro h2{font-size:clamp(40px,9vw,61px)}.magazine-intro p:not(.magazine-kicker){margin:18px auto 0}.magazine-line{margin:24px auto 0}.magazine-cover{width:min(100%,430px)}}
+@media(max-width:400px){.magazine-section{padding-inline:16px}.magazine-kicker{font-size:10px;letter-spacing:.25em}.magazine-cover figcaption{font-size:10px}}
 </style>
 <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/>
 <script id="wix-site-script" src="https://manage.wix.com/_api/headless-business-setup/v1/headless-business/site-script.js" data-client-id="0ecdf3b9-29a2-4abe-86c0-8354cf4f671f" async></script></head>
@@ -381,6 +397,21 @@
 <div aria-hidden="true" class="pm-stamp"><svg viewbox="0 0 100 100"><circle cx="50" cy="50" r="44"></circle><circle cx="50" cy="50" r="37" stroke-dasharray="2.5 3.5"></circle><path d="m21 59 59-17M35 26l10 5M55 27l9 2M32 74l14-9 9 10 13-15"></path></svg><span>BRASIL → CANADÁ</span></div>
 </section>
 <section class="cta"><div class="section-label reveal">Pronto para viver essa jornada?</div><h2 class="reveal delay1">Foz do Iguaçu e Cataratas do Niágara<br/><em>esperam por você.</em></h2><a class="gold-btn reveal delay2" href="https://api.whatsapp.com/send?phone=551131784890&amp;text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20roteiros%20para%20Foz%20do%20Igua%C3%A7u%20e%20Cataratas%20do%20Ni%C3%A1gara." rel="noopener noreferrer" target="_blank">Fale com um especialista <svg viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a><small class="reveal delay2">Uma viagem personalizada começa com uma boa conversa.</small></section>
+
+<section class="magazine-section" aria-labelledby="magazine-title" id="edicao-luxury">
+  <div class="magazine-inner">
+    <div class="magazine-intro">
+      <p class="magazine-kicker">Luxury Travel · Edição conceito</p>
+      <h2 id="magazine-title">Duas cataratas.<em>Uma jornada em capa.</em></h2>
+      <p>A grandiosidade de Foz do Iguaçu e das Cataratas do Niágara em uma composição editorial inspirada no universo de viagens de luxo da Primetour.</p>
+      <div class="magazine-line" aria-hidden="true"></div>
+    </div>
+    <figure class="magazine-cover">
+      <img src="assets/duas-cataratas-luxury-conceito.webp" alt="Capa editorial conceitual Luxury Travel, com os blocos de texto Foz do Iguaçu, Cataratas do Niágara, Duas Cataratas e uma imagem das duas quedas d'água" width="1082" height="1454" loading="lazy" decoding="async"/>
+      <figcaption>Capa ilustrativa para este projeto. Não representa uma edição oficial publicada pela Primetour.</figcaption>
+    </figure>
+  </div>
+</section>
 </main>
 <footer class="prime-footer" aria-label="Rodapé institucional PRIMETOUR">
 <section class="prime-footer-hero" aria-labelledby="prime-footer-heading">
