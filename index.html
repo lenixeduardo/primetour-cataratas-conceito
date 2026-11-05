@@ -4,7 +4,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
-<meta content="#18182F" name="theme-color"/>
+<meta content="#140c47" name="theme-color"/>
 <meta content="Experiência digital conceitual para viagens sob medida às Cataratas do Iguaçu e do Niágara. Uma apresentação não oficial inspirada no universo PRIMETOUR." name="description"/>
 <title>Duas cataratas. Uma jornada extraordinária. — Conceito Primetour</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -329,6 +329,79 @@
 .magazine-cover figcaption{margin-top:17px;font:400 11px/1.55 var(--sans);color:#e4e0d2a1;text-align:center;letter-spacing:.01em}
 @media(max-width:760px){.magazine-section{padding:68px 22px 75px}.magazine-inner{grid-template-columns:1fr;gap:36px}.magazine-intro{max-width:480px;text-align:center;margin:auto}.magazine-intro h2{font-size:clamp(40px,9vw,61px)}.magazine-intro p:not(.magazine-kicker){margin:18px auto 0}.magazine-line{margin:24px auto 0}.magazine-cover{width:min(100%,430px)}}
 @media(max-width:400px){.magazine-section{padding-inline:16px}.magazine-kicker{font-size:10px;letter-spacing:.25em}.magazine-cover figcaption{font-size:10px}}
+
+/* V9 — site-wide Prime Tour blue from the Viva além do óbvio footer */
+:root{
+  --site-blue:#140c47;
+  --night:var(--site-blue);
+  --deep:#0f0938;
+  --mid:#23185d;
+  --brand-ink:var(--site-blue);
+  --brand-navy:var(--site-blue);
+  --brand-night:#0f0938;
+}
+html,body{background:var(--site-blue)}
+/* No semi-transparent nav: the header matches the footer blue pixel for pixel. */
+.nav,.nav.scrolled{background:var(--site-blue);border-bottom-color:#ffffff25}
+.mobile-menu{background:var(--site-blue)}
+.hero-sticky{background:var(--site-blue)}
+.hero-foz,.hero-niagara{background-color:var(--site-blue)}
+.hero-filter{
+  background:
+    linear-gradient(180deg,#140c47ad 0%,#140c4752 24%,#140c4780 55%,#140c47ee 100%),
+    radial-gradient(ellipse at 50% 44%,#140c4788,transparent 64%);
+}
+/* The image remains visible, while all solid section edges share one navy tone. */
+.destination,.destination-niagara{background:var(--site-blue)}
+.destination-foz:after{
+  background:linear-gradient(90deg,#140c47 1%,#140c47ee 24%,#140c479e 47%,#140c4705 88%);
+}
+.destination-niagara:after{
+  background:linear-gradient(270deg,#140c47 1%,#140c47ee 24%,#140c479e 47%,#140c4705 88%);
+}
+.destination-foz .destination-divider path,
+.destination-niagara .destination-divider path{fill:var(--site-blue)}
+.experiences{background:radial-gradient(ellipse at 50% 0%,#2c20724d,transparent 62%),var(--site-blue)}
+.cta{background-color:var(--site-blue)}
+.cta:before{
+  background:
+    linear-gradient(90deg,#140c47df,#140c4788,#140c47df),
+    linear-gradient(0deg,#140c47ed,transparent 60%,#140c47ba);
+}
+.mobile-destination,.mobile-experiences,.mobile-final-cta{background-color:var(--site-blue)}
+.pm-photo::after{background:linear-gradient(transparent,#140c47c4)}
+.pm-experience-card::after{background:linear-gradient(transparent,#140c47ed)}
+.pm-final-backdrop{
+  background:linear-gradient(180deg,#140c47fc 0%,#140c47d9 35%,#140c477d 65%,#140c474a 100%),
+  url('assets/iguacu.webp') 58% center/cover no-repeat;
+}
+.pm-final-btn svg{stroke:var(--site-blue)}
+.magazine-section{
+  background:radial-gradient(ellipse at 82% 18%,#2a1c683f,transparent 48%),var(--site-blue);
+  border-top-color:#dddde72e;
+}
+.magazine-section:before{background:none}
+.prime-footer-hero{background:var(--site-blue)}
+@media(max-width:620px){
+  html,body{background:var(--site-blue)}
+  .nav,.nav.scrolled{background:var(--site-blue)!important;border-bottom-color:#ffffff25}
+  .mobile-menu{background:var(--site-blue)!important}
+  .hero-filter{
+    background:
+      linear-gradient(180deg,#140c47cc 0%,#140c4759 24%,#140c47b8 58%,#140c47eb 100%),
+      radial-gradient(ellipse at 50% 43%,#140c4780,transparent 70%);
+  }
+  .pm-destination,.pm-experiences,.pm-final,
+  .mobile-destination,.mobile-experiences,.mobile-final-cta{background:var(--site-blue)!important}
+  .pm-niagara{
+    background:radial-gradient(ellipse at 12% 0%,#2b1f6f43,transparent 56%),var(--site-blue)!important;
+  }
+  .pm-final-backdrop{
+    background:linear-gradient(180deg,#140c47fc 0%,#140c47d5 30%,#140c477d 58%,#140c4745 100%),
+    url('assets/iguacu.webp') 58% center/cover no-repeat;
+  }
+  .magazine-section{background:var(--site-blue)}
+}
 </style>
 <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/>
 <script id="wix-site-script" src="https://manage.wix.com/_api/headless-business-setup/v1/headless-business/site-script.js" data-client-id="0ecdf3b9-29a2-4abe-86c0-8354cf4f671f" async></script></head>
