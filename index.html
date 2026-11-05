@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
+<meta content="#031827" name="theme-color"/>
+<meta content="Experiência digital conceitual para viagens sob medida às Cataratas do Iguaçu e do Niágara. Uma apresentação não oficial inspirada no universo PRIMETOUR." name="description"/>
+<title>Duas cataratas. Uma jornada extraordinária. — Conceito Primetour</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link crossorigin="" href="https://videos.pexels.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/>
+<link as="image" href="assets/iguacu.webp" rel="preload"/>
+<style>
+:root{--night:#051b29;--deep:#061c2b;--mid:#0b3044;--gold:#eac17a;--pale:#f5d5a4;--white:#f9f8f5;--ease:cubic-bezier(.19,1,.22,1);--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',Arial,sans-serif}
+*,*:before,*:after{box-sizing:border-box}html{scroll-behavior:smooth;background:var(--night)}body{margin:0;color:var(--white);font-family:var(--sans);background:var(--night);overflow-x:hidden}body.menu-open{overflow:hidden}a{text-decoration:none;color:inherit}button{font:inherit}a,button{-webkit-tap-highlight-color:transparent}a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:5px}img,video{display:block;max-width:100%}::selection{background:var(--gold);color:var(--night)}
+#progress{position:fixed;top:0;left:0;height:2px;background:var(--gold);z-index:200;transform:scaleX(0);transform-origin:left;width:100%;pointer-events:none}
+.nav{position:fixed;z-index:100;inset:0 0 auto;height:98px;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(20px,4.5vw,75px);gap:24px;background:linear-gradient(180deg,#031421ae,#0314211a);transition:height .35s,background .45s,border-color .35s;border-bottom:1px solid #ffffff24}.nav.scrolled{height:78px;background:#041c2bef;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border-bottom-color:#efc97c3d}.logo-link{display:flex;align-items:center;min-width:165px;height:100%;overflow:visible}.logo-wrap{height:92px;width:173px;display:flex;align-items:center;justify-content:center;position:relative;flex-shrink:0}.logo-wrap img{height:93px;width:164px;object-fit:contain;filter:grayscale(1) invert(1) contrast(1.7);mix-blend-mode:screen;transition:height .35s}.nav.scrolled .logo-wrap img{height:77px}.logo-fallback{font:400 24px var(--serif);letter-spacing:.045em;position:absolute;z-index:-1}.logo-link:has(img:not([src])) .logo-fallback{z-index:1}.nav-links{display:flex;gap:clamp(20px,3.1vw,54px);align-items:center}.nav-links a{font-size:12px;font-weight:500;color:#f5f6f4;transition:color .25s}.nav-links a:hover{color:var(--gold)}.nav-contact{border:1px solid var(--gold);border-radius:100px;padding:12px 20px;display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:500;white-space:nowrap;transition:background .3s,transform .3s}.nav-contact svg{width:17px;height:17px;stroke:var(--gold)}.nav-contact:hover{background:#dcb36d2a;transform:translateY(-2px)}.nav-menu{display:none;background:none;border:0;color:var(--white);padding:10px;cursor:pointer}.nav-menu span{display:block;width:28px;height:2px;margin:6px 0;background:var(--white);transition:transform .3s}.mobile-menu{position:fixed;z-index:99;inset:0;background:#061b2af5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}.mobile-menu.open{opacity:1;visibility:visible}.mobile-menu a{font:400 31px var(--serif)}
+.hero{height:155svh;min-height:1050px;position:relative;isolation:isolate}.hero-sticky{height:100svh;min-height:680px;position:sticky;top:0;overflow:hidden;isolation:isolate;background:#061b29}.hero-scene{position:absolute;inset:0;z-index:-4;transform:scale(var(--hero-zoom,1.03));will-change:transform}.hero-foz,.hero-niagara{position:absolute;inset:0}.hero-foz{background:#133748 url('assets/iguacu.webp') center/cover no-repeat}.hero-niagara{left:auto;width:49%;background:#0c3545 url('assets/niagara_detail.webp') center/cover no-repeat;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);border-left:1px solid #eac17a80;opacity:.96}.hero-foz video,.hero-niagara video{width:100%;height:100%;object-fit:cover}.hero-niagara video{object-position:62% center}.hero-filter{position:absolute;inset:0;z-index:-3;background:linear-gradient(180deg,#051727a6 0%,#03192845 24%,#04203058 53%,#021723db 100%),radial-gradient(ellipse at 50% 45%,#021a309a,transparent 49%)}.hero-warm{position:absolute;inset:0;z-index:-2;pointer-events:none;background:radial-gradient(ellipse at 46% 4%,#eab4772a,transparent 38%)}.hero-arc{position:absolute;z-index:0;inset:4% 7% auto;height:36%;width:86%;overflow:visible;filter:drop-shadow(0 0 12px #d3a35dbb);pointer-events:none}.hero-arc path.arc{fill:none;stroke:#e8bb76;stroke-width:1.5;stroke-linecap:round;stroke-dasharray:1600;stroke-dashoffset:1600;transition:stroke-dashoffset 2.5s cubic-bezier(.22,.75,.25,1)}body.loaded .hero-arc path.arc{stroke-dashoffset:0}.hero-plane{transform-origin:center;animation:plane-float 6s ease-in-out infinite}.hero-plane path{stroke:#fff3dc;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}@keyframes plane-float{50%{transform:translate(7px,-5px)}}.hero-copy{position:absolute;z-index:2;top:50%;left:50%;width:min(94%,1180px);transform:translate(-50%,calc(-39% - var(--hero-offset,0px)));text-align:center;will-change:transform}.eyebrow{display:flex;align-items:center;justify-content:center;gap:22px;font-size:12px;letter-spacing:.46em;text-transform:uppercase;font-weight:500;line-height:1.6;color:#fff8e9}.eyebrow:before,.eyebrow:after{content:'';display:block;width:48px;height:1px;background:#e0c38fad}.hero h1{font:400 clamp(48px,5.3vw,92px)/1.09 var(--serif);letter-spacing:-.042em;margin:19px 0 21px;text-wrap:balance;text-shadow:0 6px 38px #0009}.hero h1 span{display:block}.hero h1 em{font-weight:400;font-style:italic;color:var(--pale);white-space:nowrap}.hero-sub{font-size:clamp(14px,1.25vw,18px);font-weight:300;line-height:1.65;max-width:730px;margin:0 auto 27px;text-shadow:0 2px 18px #0009}.gold-btn{display:inline-flex;align-items:center;justify-content:center;gap:28px;padding:17px 34px;background:linear-gradient(180deg,#f8d98f 0%,#ddb066 85%);border:1px solid #fff5c8;border-radius:100px;min-height:52px;color:#171d20;font-size:14px;font-weight:700;box-shadow:0 5px 30px #d8993c65,inset 0 1px #fff6ca;transition:transform .35s,box-shadow .35s}.gold-btn:hover{transform:translateY(-4px);box-shadow:0 10px 38px #e9ac5480}.gold-btn svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7}.hero-copy>*{opacity:0;translate:0 25px;transition:opacity 1.1s var(--ease),translate 1.1s var(--ease)}body.loaded .hero-copy>*{opacity:1;translate:0 0}body.loaded .hero-copy h1{transition-delay:.1s}body.loaded .hero-copy .hero-sub{transition-delay:.22s}body.loaded .hero-copy .gold-btn{transition-delay:.32s}.hero-hint{position:absolute;z-index:4;bottom:48px;left:50%;transform:translateX(-50%);display:flex;align-items:center;flex-direction:column;gap:10px;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#fff;white-space:nowrap}.mouse{height:26px;width:16px;border:1px solid #fff9;border-radius:20px;position:relative}.mouse:before{content:'';position:absolute;top:5px;left:7px;width:1px;height:5px;background:#fff;animation:wheel 1.8s infinite}@keyframes wheel{to{transform:translateY(7px);opacity:0}}.hero-hint svg{width:15px;stroke:#fff;stroke-width:1.5;fill:none;animation:arrow-down 2s ease infinite}@keyframes arrow-down{50%{transform:translateY(6px)}}.hero-location{position:absolute;bottom:24px;font-size:10px;text-transform:uppercase;letter-spacing:.25em;opacity:.73}.hero-location.left{left:4.7%}.hero-location.right{right:4.7%}.hero-bottom-wave{position:absolute;inset:auto 0 -1px;z-index:5;height:80px;pointer-events:none}.hero-bottom-wave svg{width:100%;height:100%;display:block}.hero-bottom-wave path{fill:var(--night);stroke:#eec278;stroke-width:1.3}.video-state{position:absolute;right:30px;bottom:102px;color:#ffffffc7;font-size:10px;z-index:4;letter-spacing:.15em;display:flex;gap:10px;align-items:center}.live-dot{width:6px;height:6px;border-radius:50%;background:#dfc189;box-shadow:0 0 10px #e5c27e;animation:pulse 2s infinite}@keyframes pulse{50%{opacity:.25}}
+.destination{position:relative;min-height:630px;display:flex;align-items:center;isolation:isolate;overflow:hidden;padding:110px clamp(25px,6.2vw,110px);background:#041824}.destination .destination-media{position:absolute;inset:0;z-index:-2;overflow:hidden}.destination .destination-media img,.destination .destination-media video{width:100%;height:100%;object-fit:cover;will-change:transform;transition:transform 1.1s var(--ease)}.destination:hover .destination-media img{transform:scale(1.045)}.destination-foz .destination-media img{object-position:65% center}.destination-niagara .destination-media img{object-position:26% center}.destination-foz:after,.destination-niagara:after{content:'';position:absolute;inset:0;z-index:-1;pointer-events:none}.destination-foz:after{background:linear-gradient(90deg,#041b29 1%,#061b29e9 22%,#06232e9c 42%,#08233205 85%)}.destination-niagara:after{background:linear-gradient(270deg,#031927 2%,#041b29ed 20%,#082431c0 42%,#07253106 82%)}.destination-content{width:min(440px,100%)}.destination-niagara{justify-content:flex-end}.section-label{font-size:11px;text-transform:uppercase;letter-spacing:.4em;color:var(--gold);font-weight:600}.destination h2{font:400 clamp(46px,5.8vw,82px)/1.03 var(--serif);letter-spacing:-.037em;margin:10px 0}.gold-rule{width:74px;height:2px;background:var(--gold);margin:18px 0 20px;box-shadow:0 0 15px #eebf6f7d}.destination p{font:300 clamp(17px,1.7vw,22px)/1.4 var(--sans);max-width:365px;margin:0 0 30px}.features{display:flex;gap:0;max-width:480px;margin:27px 0 28px}.feature{flex:1;text-align:center;padding:0 14px;border-right:1px solid #c6b6a361}.feature:first-child{padding-left:0}.feature:last-child{border:0}.feature svg{height:31px;width:33px;display:block;margin:0 auto 8px;stroke:var(--gold);stroke-width:1.3;fill:none}.feature span{font-size:11px;line-height:1.24;display:block;max-width:96px;margin:auto}.outline-btn{display:inline-flex;align-items:center;justify-content:space-between;gap:45px;min-width:252px;padding:9px 18px;border:1px solid #edc482;border-radius:60px;font-size:13px;transition:background .3s,color .3s}.outline-btn svg{width:20px;stroke:var(--gold);stroke-width:1.5;fill:none}.outline-btn:hover{background:#eec58522}.destination-divider{position:absolute;bottom:-1px;left:0;right:0;width:100%;height:49px;z-index:3}.destination-divider path{fill:var(--night);stroke:var(--gold);stroke-width:1.3}.destination-foz .destination-divider path{fill:#071e2e}.destination-niagara{background:#071e2e;min-height:640px}.destination-niagara .destination-divider path{fill:#061c2b}.destination-niagara .destination-content{max-width:435px}.destination-niagara h2{font-size:clamp(44px,5.5vw,76px)}
+.experiences{background:radial-gradient(ellipse at center top,#0b3b4d4a,transparent 63%),#061c2b;padding:85px 0 104px;position:relative;overflow:hidden}.experiences-grid{width:min(1500px,90%);margin:auto;display:grid;grid-template-columns:minmax(220px,1.25fr) repeat(4,minmax(0,1fr));gap:12px;align-items:stretch}.experience-intro{align-self:center;padding-right:26px}.experience-intro h2{font:400 clamp(36px,3.5vw,54px)/1.16 var(--serif);letter-spacing:-.045em;margin:17px 0}.experience-intro h2 em{font-weight:400}.experience-card{height:250px;border-radius:20px;position:relative;overflow:hidden;border:1px solid #e6ba6b8f;background:#17394a;transition:transform .55s var(--ease),box-shadow .55s}.experience-card:hover{transform:translateY(-11px);box-shadow:0 23px 42px #0005}.experience-card img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}.experience-card:hover img{transform:scale(1.12)}.experience-card:after{content:'';position:absolute;inset:40% 0 0;background:linear-gradient(transparent,#021723de)}.experience-card span{position:absolute;bottom:16px;left:14px;right:10px;z-index:1;font-size:12px;font-weight:500;line-height:1.25;text-shadow:0 1px 10px #000}.experience-card svg{width:19px;height:19px;vertical-align:middle;margin-right:6px;stroke:var(--gold);fill:none;stroke-width:1.5}.experience-footnote{width:min(1500px,90%);margin:18px auto 0;font-size:11px;opacity:.55}
+.cta{min-height:520px;background:#041c2c url('assets/iguacu.webp') center 54% / cover no-repeat;position:relative;display:grid;place-content:center;padding:110px 24px 120px;text-align:center;overflow:hidden;isolation:isolate}.cta:before{content:'';position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,#041827c7,#0b3545af,#041827c8),linear-gradient(0deg,#041624dd,transparent 55%,#061b2bb5)}.cta:after{content:'';position:absolute;left:-10%;right:-10%;top:0;height:52px;border-top:1px solid var(--gold);border-radius:48% 55% 0 0;transform:rotate(-2deg)}.cta .section-label{font-size:12px}.cta h2{font:400 clamp(35px,4.4vw,61px)/1.17 var(--serif);letter-spacing:-.033em;margin:18px 0 29px}.cta h2 em{color:var(--pale)}.cta small{margin-top:24px;display:block;font-size:12px;color:#fef3eaaa;letter-spacing:.04em}.footer{padding:30px 5% 24px;background:#031521;color:#ffffffa2;display:flex;flex-wrap:wrap;gap:12px 30px;align-items:center;justify-content:space-between;border-top:1px solid #b68f5b42}.footer p{font-size:10px;line-height:1.6;max-width:760px;margin:0}.footer a{color:var(--gold);font-size:11px}
+.reveal{opacity:0;transform:translateY(45px);transition:opacity 1.05s var(--ease),transform 1.1s var(--ease)}.reveal.inview{opacity:1;transform:translateY(0)}.reveal.delay1{transition-delay:.14s}.reveal.delay2{transition-delay:.25s}.reveal.delay3{transition-delay:.36s}.reveal.delay4{transition-delay:.46s}
+@media(max-width:1200px){.experiences-grid{grid-template-columns:repeat(4,1fr)}.experience-intro{grid-column:1/-1;padding:0 0 12px}.experience-intro h2{margin:8px 0 0}.experience-card{height:255px}.nav-links{gap:20px}.hero h1{font-size:clamp(46px,6vw,82px)}}
+@media(max-width:850px){.nav{height:80px}.logo-wrap{height:76px;width:128px}.logo-wrap img{width:130px;height:78px}.nav.scrolled .logo-wrap img{height:73px}.logo-link{min-width:128px}.nav-links{display:none}.nav-contact{margin-left:auto;padding:10px 14px;font-size:11px}.nav-menu{display:block}.hero{height:135svh;min-height:1020px}.hero-arc{inset:12% 2% auto;width:96%;height:24%}.hero-copy{width:94%;transform:translate(-50%,calc(-40% - var(--hero-offset,0px)))}.hero h1 em{white-space:normal}.hero h1{font-size:clamp(45px,6.2vw,72px)}.destination{min-height:620px;padding:100px 5%}.destination-niagara{min-height:620px}.destination-content{max-width:370px}.experiences-grid{grid-template-columns:repeat(2,1fr);gap:16px}.experience-intro{grid-column:1/-1}.experience-card{height:290px}}
+@media(max-width:620px){.nav{padding:0 14px}.nav-contact{font-size:0;gap:0;width:40px;height:40px;padding:0;display:flex;justify-content:center}.nav-contact svg{width:20px;height:20px}.nav-menu{padding:8px}.hero{height:137svh;min-height:900px}.hero-sticky{min-height:620px}.hero-scene{transform:scale(var(--hero-zoom,1.08))}.hero-foz video{object-position:58% center}.hero-niagara{width:45%;opacity:.32;clip-path:polygon(26% 0,100% 0,100% 100%,0 100%)}.hero-niagara video{display:none}.hero-filter{background:linear-gradient(180deg,#031829bf 0%,#0216255c 20%,#021624b0 50%,#021622ea 100%)}.hero-arc{top:21%;left:3%;width:94%;height:22%;opacity:.9}.hero-copy{top:53%;width:93%;transform:translate(-50%,calc(-44% - var(--hero-offset,0px)))}.eyebrow{gap:10px;letter-spacing:.24em;font-size:9px}.eyebrow:before,.eyebrow:after{width:20px}.hero h1{font-size:clamp(41px,9.5vw,62px);line-height:1.12;margin:20px 0}.hero h1 em{font-size:.91em;white-space:normal}.hero-sub{font-size:14px;max-width:330px;margin-bottom:27px}.gold-btn{font-size:12px;padding:14px 22px;gap:15px}.hero-hint{bottom:58px}.hero-location{bottom:12px;font-size:8px}.video-state{bottom:98px;right:12px;font-size:8px}.destination{min-height:680px;padding:70px 25px 90px;align-items:flex-end}.destination-foz .destination-media img{object-position:57% 20%}.destination-niagara .destination-media img{object-position:36% 20%}.destination-foz:after{background:linear-gradient(0deg,#031b29 0%,#051c29ed 24%,#06233456 65%,#071d2e29)}.destination-niagara:after{background:linear-gradient(0deg,#031b29 0%,#051c29ed 24%,#06233456 65%,#071d2e29)}.destination-content{width:100%}.destination h2{font-size:55px}.destination-niagara h2{font-size:49px}.destination p{font-size:16px;max-width:340px}.features{margin:22px 0}.feature{padding:0 9px}.feature:first-child{padding-left:0}.feature span{font-size:10px}.feature svg{width:28px}.experience-card{height:240px;border-radius:16px}.experiences{padding:60px 0 80px}.experiences-grid{width:92%;gap:12px}.experience-intro h2{font-size:42px}.experience-card span{font-size:11px}.experience-card svg{width:15px}.cta{min-height:480px;padding:78px 20px}.cta h2{font-size:37px}.footer{padding:25px 5% 30px}}
+@media(max-width:400px){.hero h1{font-size:39px}.nav-contact{width:37px;height:37px}.destination h2{font-size:48px}.destination-niagara h2{font-size:46px}.feature span{font-size:9px}.experience-card{height:210px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.hero-arc path.arc{stroke-dashoffset:0}.hero-copy>*{opacity:1;translate:none}.hero-scene{transform:none}}
+
+/* Individual mobile asset composition. Every visible block takes part in normal document flow. */
+.mobile-hero-overlay,.mobile-destination,.mobile-experiences,.mobile-final-cta{display:none}
+@media(max-width:620px){
+  html{scroll-padding-top:82px}
+  body{background:#041b2a}
+  .nav{height:76px;isolation:isolate;background:#041a29f0;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px)}
+  .nav.scrolled{height:70px}
+  .logo-wrap{width:140px;height:75px}.logo-wrap img{width:138px;height:74px;object-fit:contain;filter:grayscale(1) invert(1) contrast(1.7);mix-blend-mode:screen}
+  .nav.scrolled .logo-wrap img{height:66px}
+  .hero{height:100svh;min-height:600px}
+  .hero-sticky{height:100%;min-height:0;position:relative;top:auto;overflow:hidden}
+  .hero-foz{background-position:60% center}
+  .hero-scene{transform:none!important;will-change:auto}
+  .hero-filter{background:linear-gradient(180deg,#021624b0 0%,#0217293d 43%,#041827d8 100%)}
+  .hero-arc,.hero-copy,.hero-hint,.hero-location,.hero-bottom-wave,.video-state{display:none!important}
+  .mobile-hero-overlay{position:absolute;z-index:7;left:50%;top:calc(50% + 20px);transform:translate(-50%,-50%);display:block;width:min(93vw,400px);max-width:100%;aspect-ratio:941 / 1115}
+  .mobile-hero-overlay>img{width:100%;height:100%;object-fit:contain}
+  .mobile-hero-hotspot{position:absolute;top:53%;left:14%;width:72%;height:12%;border-radius:30px;z-index:8;cursor:pointer}
+  .mobile-hero-hotspot:focus-visible,.mobile-final-hotspot:focus-visible{outline:3px solid #fff;outline-offset:0;box-shadow:0 0 0 4px #ba8f48}
+  .destination,.experiences,.cta{display:none!important}
+  .mobile-destination,.mobile-experiences,.mobile-final-cta{display:block;position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(ellipse at 50% 0,#15466061,transparent 55%),#041c2c}
+  .mobile-section-inner{width:min(100% - 36px,480px);margin:0 auto;position:relative}
+  .mobile-destination{padding:44px 0 62px}
+  .mobile-niagara{background:radial-gradient(ellipse at 70% 5%,#17405a79,transparent 50%),#061c2b}
+  .mobile-photo{width:100%;height:auto;aspect-ratio:1.32;overflow:hidden;border-radius:22px;border:1px solid #f6d28a8c;box-shadow:0 18px 42px #020e178c}
+  .mobile-photo img{width:100%;height:100%;object-fit:cover}
+  .mobile-destination-card{display:block;position:relative;width:min(100%,410px);margin:18px auto 0;border-radius:32px;overflow:visible;contain:layout}
+  .mobile-destination-card img{width:100%;height:auto;object-fit:contain}
+  .mobile-destination-card:focus-visible{outline:2px solid #e9bb67;outline-offset:5px}
+  .mobile-experiences{padding:62px 0 65px;background:radial-gradient(ellipse at 48% 0,#12364f 0%,transparent 58%),#031b2c}
+  .mobile-experiences-heading{display:block;width:100%;height:auto;object-fit:contain;margin:0 auto 32px}
+  .mobile-experiences-list{display:flex;flex-direction:column;align-items:center;gap:14px}
+  .mobile-premium-card{width:min(100%,355px);height:auto;object-fit:contain;filter:drop-shadow(0 9px 18px #0005)}
+  .mobile-premium-fourth{position:relative;width:min(92%,326px);height:auto;aspect-ratio:3 / 4;overflow:hidden;border:1.5px solid #eac17a;border-radius:30px;background:#071f2c;box-shadow:0 0 16px #d4ac652e}
+  .mobile-premium-fourth>img{width:100%;height:100%;object-fit:cover}
+  .mobile-premium-fourth::after{content:'';position:absolute;inset:60% 0 0;background:linear-gradient(transparent,#031925ef)}
+  .mobile-premium-fourth-label{position:absolute;z-index:2;bottom:24px;left:10px;right:10px;text-align:center;font-size:clamp(16px,4.8vw,23px);display:flex;flex-direction:column;align-items:center;gap:10px}
+  .mobile-premium-fourth-label svg{width:34px;height:34px;fill:none;stroke:#eac17a;stroke-width:1.5}
+  .mobile-disclaimer{font-size:11px;color:#cfdbdfb9;line-height:1.5;text-align:center;margin:34px auto 0;max-width:325px}
+  .mobile-final-cta{padding:50px 0 74px;background:linear-gradient(180deg,#041b2ae8,#041b2a9e 35%,#041b2af0 100%),url('assets/iguacu.webp') center/cover no-repeat}
+  .mobile-final-art{position:relative;width:min(100%,435px);margin:auto;aspect-ratio:1056 / 1243}
+  .mobile-final-art>img{width:100%;height:100%;object-fit:contain}
+  .mobile-final-hotspot{position:absolute;left:12%;width:76%;height:17%;top:65%;border-radius:40px;z-index:2}
+  .mobile-stamp{display:block;width:125px;height:auto;margin:0 auto;filter:drop-shadow(0 4px 18px #e6b35e52)}
+  .footer{padding:28px 22px 36px;gap:13px}
+  .footer p{font-size:10px;line-height:1.65}
+}
+@media(max-width:360px){
+  .mobile-section-inner{width:calc(100% - 26px)}
+  .mobile-destination{padding-top:28px;padding-bottom:42px}
+  .mobile-premium-card{width:min(100%,320px)}
+  .mobile-hero-overlay{top:calc(50% + 13px)}
+}
+@media(prefers-reduced-motion:reduce){
+ .mobile-hero-overlay,.mobile-destination-card,.mobile-photo,.mobile-premium-card{animation:none!important;transform:none}
+}
+
+/* V4 MOBILE: independent visual assets, editable HTML text, real links, no hotspots */
+@media (max-width:620px){
+  :root{--night:#031b2a;--gold:#efc578;--pale:#f5d39d}
+  html{scroll-padding-top:82px}
+  .nav{height:72px!important;padding:0 18px;background:#031a29ef;border-bottom-color:#e7c17d24}
+  .nav.scrolled{height:66px!important}
+  .logo-link{min-width:130px}
+  .logo-wrap{height:66px;width:130px}
+  .logo-wrap img,.nav.scrolled .logo-wrap img{height:65px;width:130px}
+  .nav-contact{width:38px!important;height:38px!important}
+  .mobile-menu{padding:90px 22px 60px}
+  /* hero background video stays behind native headline and CTA */
+  .hero{height:auto!important;min-height:100svh!important}
+  .hero-sticky{position:relative!important;display:flex;align-items:center;justify-content:center;min-height:100svh!important;height:auto!important;padding:105px 19px 94px;overflow:hidden}
+  .hero-scene{transform:none!important;inset:0}
+  .hero-foz{background-position:55% center}
+  .hero-foz video{object-position:55% center}
+  .hero-niagara{width:45%;opacity:.5;clip-path:polygon(24% 0,100% 0,100% 100%,0 100%)}
+  .hero-filter{background:linear-gradient(180deg,#021727bc 0%,#061f3055 23%,#03192ab5 55%,#031827c9 100%),radial-gradient(ellipse at 50% 43%,#04192db5,transparent 68%)}
+  .hero-arc{display:block!important;top:15%;left:-8%;width:116%;height:23%;opacity:.85;z-index:1}
+  .hero-copy{display:flex!important;position:relative!important;inset:auto!important;top:auto!important;left:auto!important;width:min(100%,420px)!important;transform:none!important;translate:none!important;flex-direction:column;align-items:center;margin:0 auto;text-align:center;z-index:3;will-change:auto}
+  .hero-copy>*{max-width:100%}
+  .hero .eyebrow{font-size:9px;letter-spacing:.28em;gap:10px;white-space:nowrap}
+  .hero .eyebrow::before,.hero .eyebrow::after{width:17px;flex-shrink:0}
+  .hero h1{font-size:clamp(32px,9.5vw,48px)!important;line-height:1.09;margin:19px 0 20px;letter-spacing:-.055em;text-wrap:balance}
+  .hero h1 span{display:block}
+  .hero h1 em{display:block;font-size:.89em;font-weight:400;line-height:1.16;color:var(--pale);white-space:normal}
+  .hero-sub{font-size:clamp(12px,3.35vw,14px);font-weight:400;line-height:1.65;max-width:320px;margin:0 auto 22px}
+  .hero .gold-btn{width:min(100%,286px);min-height:49px;padding:13px 18px;font-size:13px;gap:12px;white-space:nowrap}
+  .hero-hint{display:flex!important;bottom:28px!important;z-index:4;font-size:8px;gap:6px}
+  .hero-hint .mouse{height:24px}
+  .hero-bottom-wave{display:block!important;height:35px;z-index:5}
+  .hero-location,.video-state,.mobile-hero-overlay{display:none!important}
+  .destination,.experiences,.cta{display:none!important}
+  /* all content in normal flow — no placement by image-relative percentages */
+  .mobile-destination,.mobile-experiences,.mobile-final-cta{display:block!important;position:relative;background:#031b2a;isolation:isolate;overflow:hidden}
+  .pm-inner{width:min(calc(100% - 38px),420px);margin-inline:auto;position:relative}
+  .pm-destination{padding:51px 0 74px!important;background:radial-gradient(ellipse at 88% 3%,#0e344a55,transparent 53%),#031b2a}
+  .pm-niagara{padding-top:57px!important;background:radial-gradient(ellipse at 10% 5%,#10385065,transparent 52%),#031b2a}
+  .pm-copy{position:relative}
+  .pm-kicker{font-weight:600;font-size:10px;letter-spacing:.34em;line-height:1.5;text-transform:uppercase;color:var(--gold);margin:0 0 12px}
+  .pm-copy h2{font:400 clamp(37px,10vw,49px)/1.08 var(--serif);letter-spacing:-.04em;margin:0;color:#fff;text-wrap:balance}
+  .pm-gold-rule{width:48px;height:2px;background:var(--gold);margin:16px 0}
+  .pm-description{font-size:clamp(13px,3.6vw,15px);line-height:1.55;max-width:350px;margin:0 0 24px;color:#f5f7f5e6}
+  .pm-photo{position:relative;margin:0 0 25px;aspect-ratio:1.06;max-height:365px;overflow:hidden;border-radius:18px;border:1px solid #e8c17480;box-shadow:0 13px 32px #0005;background:#133d52}
+  .pm-photo img{width:100%;height:100%;object-fit:cover;object-position:center}
+  .pm-niagara .pm-photo img{object-position:45% center}
+  .pm-photo::after{content:'';position:absolute;inset:65% 0 0;background:linear-gradient(transparent,#031622a8);pointer-events:none}
+  .pm-photo figcaption{position:absolute;bottom:12px;left:15px;z-index:1;font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:#fff}
+  .pm-features{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:5px 0 22px;align-items:start}
+  .pm-feature{display:flex;flex-direction:column;align-items:center;justify-content:flex-start;min-width:0;min-height:80px;padding:0 6px;text-align:center;gap:8px}
+  .pm-feature+.pm-feature{border-left:1px solid #ebc58150}
+  .pm-feature svg{width:26px;height:26px;flex:none;fill:none;stroke:var(--gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+  .pm-feature span{font-size:10px;line-height:1.35;color:#f6f2eb;font-weight:400}
+  .pm-outline-cta{display:flex;align-items:center;justify-content:center;gap:17px;border:1px solid var(--gold);border-radius:60px;color:#fff;text-align:center;font-size:12px;font-weight:600;line-height:1.3;min-height:46px;padding:10px 19px;transition:background .25s,transform .25s}
+  .pm-outline-cta:hover{background:#d9b46523;transform:translateY(-2px)}
+  .pm-outline-cta svg,.pm-final-btn svg{width:18px;height:18px;fill:none;stroke:var(--gold);stroke-width:1.8;flex:none}
+  .pm-wave{position:absolute;bottom:25px;left:-8%;width:116%;height:22px;border-top:1px solid #e6b66a8a;border-radius:50% 50% 0 0;pointer-events:none}
+  .pm-experiences{padding:63px 0 72px!important;background:#031b2a}
+  .pm-kicker-centered{text-align:center}
+  .pm-exp-title{font:400 clamp(31px,8.5vw,42px)/1.14 var(--serif);letter-spacing:-.045em;text-align:center;margin:5px 0 28px;color:#f8f7f4}
+  .pm-exp-title em{color:var(--gold);font-weight:400}
+  .pm-exp-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+  .pm-experience-card{position:relative;overflow:hidden;border-radius:15px;border:1px solid #e7be7880;aspect-ratio:.84;background:#092d41;box-shadow:0 4px 20px #0004}
+  .pm-experience-card img{height:100%;width:100%;object-fit:cover}
+  .pm-experience-card::after{content:'';inset:38% 0 0;position:absolute;background:linear-gradient(transparent,#031825f2);pointer-events:none}
+  .pm-exp-label{position:absolute;bottom:10px;left:8px;right:8px;z-index:1;display:flex;gap:7px;align-items:end;color:white;text-shadow:0 1px 4px #000b;min-width:0}
+  .pm-exp-label svg{width:20px;height:20px;flex:none;fill:none;stroke:var(--gold);stroke-width:1.65;stroke-linecap:round;stroke-linejoin:round}
+  .pm-exp-label>span{font-size:clamp(10px,2.85vw,12px);line-height:1.2;font-weight:600}
+  .pm-footnote{font-size:10px;color:#c0c9cbbd;line-height:1.65;text-align:center;margin:23px 0 0}
+  .pm-final{min-height:565px;padding:85px 0 235px;background:#031a29!important;overflow:hidden}
+  .pm-final-backdrop{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,#031b2af9 0%,#031b2ac6 30%,#031b2a63 58%,#031b2a3d 100%),url('assets/iguacu.webp') 58% center/cover no-repeat}
+  .pm-final-content{width:min(calc(100% - 38px),420px);margin:0 auto;text-align:center;position:relative;z-index:3}
+  .pm-final h2{font:400 clamp(29px,7.7vw,41px)/1.16 var(--serif);letter-spacing:-.035em;margin:20px auto 26px;text-wrap:balance}
+  .pm-final h2 em{font-style:italic;color:var(--gold);font-weight:400}
+  .pm-final-btn{min-height:49px;font-size:12px;padding:12px 15px;width:min(100%,290px);gap:12px}
+  .pm-final-btn svg{stroke:#041827}
+  .pm-traveler{position:absolute;z-index:1;left:-2%;bottom:-10px;width:72%;height:54%;background:url('assets/traveler.webp') left bottom/auto 100% no-repeat;opacity:.9;-webkit-mask-image:linear-gradient(90deg,#000 68%,transparent 100%);mask-image:linear-gradient(90deg,#000 68%,transparent 100%);filter:drop-shadow(4px 5px 18px #06131b)}
+  .pm-stamp{position:absolute;z-index:2;right:8%;bottom:72px;width:100px;height:100px;transform:rotate(-15deg);color:#e9c482d6}
+  .pm-stamp svg{width:100%;height:100%;fill:none;stroke:currentColor;stroke-width:1.3}
+  .pm-stamp span{position:absolute;top:45px;left:0;right:0;font-size:8px;letter-spacing:.06em;white-space:nowrap;transform:rotate(-12deg);text-align:center}
+  .reveal{transform:translateY(17px);transition-duration:.7s}
+  .footer{padding:26px 22px 36px}
+}
+@media(max-width:360px){
+  .pm-inner{width:calc(100% - 30px)}
+  .pm-destination{padding-top:40px!important}
+  .pm-experience-card{aspect-ratio:.82}
+  .pm-exp-label{left:7px;right:7px;gap:5px}
+  .pm-exp-label svg{width:17px;height:17px}
+  .pm-exp-label>span{font-size:10px}
+  .hero-sticky{padding-left:16px;padding-right:16px}
+  .hero h1{font-size:clamp(30px,9.1vw,37px)!important}
+  .hero-sub{font-size:12px}
+}
+@media(max-height:650px) and (max-width:620px){
+  .hero-sticky{padding-top:93px;padding-bottom:66px}
+  .hero-hint{bottom:16px!important}
+  .hero h1{margin:10px 0 11px}
+  .hero-sub{margin-bottom:15px}
+}
+@media(max-width:620px) and (prefers-reduced-motion:reduce){
+  .hero-copy{transform:none!important;translate:none!important;position:relative!important}
+  .hero-scene{transform:none!important}
+  .hero-arc path.arc{stroke-dashoffset:0}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* V5 high-resolution editorial photo sources */
+.experience-card picture,.pm-experience-card picture{position:absolute;inset:0;display:block;width:100%;height:100%}
+.experience-card picture img,.pm-experience-card picture img{width:100%;height:100%;object-fit:cover;display:block}
+.experience-card:nth-of-type(4) picture img{object-position:57% 45%}
+.pm-experience-card:nth-child(4) picture img{object-position:55% center}
+/* Brand favicon is sourced from the same official logo, not a Wix-created mark */
+
+/* V6 BRAND + AIRCRAFT: Single official brand mark and independent non-distorted plane */
+.logo-wrap .logo-fallback { display:none!important; }
+.logo-wrap.logo-error .logo-fallback {
+  display:block!important;
+  font:400 19px/1.1 var(--serif);
+  letter-spacing:.075em;
+  color:#fff;
+  position:static;
+  z-index:auto;
+  white-space:nowrap;
+}
+.logo-wrap img[hidden] { display:none!important; }
+.logo-link,.logo-wrap { overflow:hidden; }
+.logo-wrap img { max-width:100%; max-height:100%; object-fit:contain; }
+.hero-aircraft {
+  position:absolute;
+  z-index:3;
+  top:18%;
+  right:10%;
+  width:52px;
+  height:52px;
+  display:block;
+  pointer-events:none;
+  transform:rotate(72deg);
+  filter:drop-shadow(0 0 6px #deb36598);
+  animation:aircraft-hover 6s ease-in-out infinite;
+}
+.hero-aircraft svg { display:block;width:100%;height:100%;overflow:visible; }
+.hero-aircraft path { fill:#f4d19b;stroke:#fff4dc;stroke-width:.6;stroke-linejoin:round; }
+@keyframes aircraft-hover { 0%,100% { translate:0 0; } 50% { translate:4px -3px; } }
+@media(max-width:850px){
+  .hero-aircraft { top:19%; right:7%; width:46px; height:46px; }
+}
+@media(max-width:620px){
+  .nav { gap:12px!important; }
+  .logo-link { min-width:0!important; flex-shrink:0; max-width:44vw; }
+  .logo-wrap { width:clamp(123px,39vw,162px)!important; height:66px!important; }
+  .logo-wrap img,.nav.scrolled .logo-wrap img {
+    width:100%!important;
+    height:100%!important;
+    max-height:65px;
+    object-fit:contain!important;
+  }
+  .hero-aircraft { top:18.5%; right:6.5%; width:46px; height:46px; }
+}
+@media(max-width:350px){
+  .hero-aircraft { width:39px;height:39px;top:18%;right:5%; }
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-aircraft { animation:none!important;translate:0 0!important; }
+}
+</style>
+<link rel="icon" type="image/png" href="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/>
+<script id="wix-site-script" src="https://manage.wix.com/_api/headless-business-setup/v1/headless-business/site-script.js" data-client-id="0ecdf3b9-29a2-4abe-86c0-8354cf4f671f" async></script></head>
+<body>
+<div aria-hidden="true" id="progress"></div>
+<header class="nav" id="nav">
+<a aria-label="Início — PRIMETOUR" class="logo-link" href="#inicio"><span class="logo-wrap"><img alt="PRIMETOUR — Viagens &amp; Experiências" id="official-logo" onerror="this.hidden=true;this.parentElement.classList.add('logo-error')" src="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/><span class="logo-fallback">PRIMETOUR</span></span></a>
+<nav aria-label="Navegação principal" class="nav-links"><a href="#destinos">Destinos</a><a href="#experiencias">Experiências</a><a href="#roteiro">Roteiros</a><a href="https://primetour.com.br/primetour/" rel="noopener noreferrer" target="_blank">A Primetour</a></nav>
+<a class="nav-contact" href="https://primetour.com.br/entre-em-contato/" rel="noopener noreferrer" target="_blank"><svg aria-hidden="true" viewbox="0 0 24 24"><path d="M21 11.5a8.7 8.7 0 0 1-8.7 8.7c-1.5 0-3-.4-4.2-1.1L3 20.6l1.5-4.7A8.6 8.6 0 0 1 3.6 12a8.7 8.7 0 0 1 17.4-.5Z"></path><path d="M8.2 8.2c-.3 2 3.7 6.6 6.5 6.8l1.1-1.2-2.2-1.4-1 1-2.6-2.7.8-1.2-1.6-2Z"></path></svg> Fale com um especialista</a>
+<button aria-controls="mobile-menu" aria-expanded="false" aria-label="Abrir menu" class="nav-menu" type="button"><span></span><span></span><span></span></button>
+</header>
+<nav aria-label="Menu móvel" class="mobile-menu" id="mobile-menu"><a href="#inicio">Início</a><a href="#destinos">Destinos</a><a href="#experiencias">Experiências</a><a href="#roteiro">Roteiros</a><a href="https://primetour.com.br/entre-em-contato/" target="_blank">Fale com a Primetour</a></nav>
+<main>
+<section aria-labelledby="hero-title" class="hero" id="inicio">
+<div class="hero-sticky">
+<div class="hero-scene"><div class="hero-foz"><video aria-label="Imagens em movimento das Cataratas do Iguaçu" autoplay="" id="foz-video" loop="" muted="" playsinline="" poster="assets/iguacu.webp" preload="metadata" webkit-playsinline=""><source src="https://videos.pexels.com/video-files/1897273/1897273-hd_1920_1080_30fps.mp4" type="video/mp4"/></video></div><div class="hero-niagara"><video aria-label="Imagens em movimento das Cataratas do Niágara" autoplay="" id="niagara-video" loop="" muted="" playsinline="" poster="assets/niagara_detail.webp" preload="none" webkit-playsinline=""><source src="https://videos.pexels.com/video-files/855901/855901-hd_1920_1080_30fps.mp4" type="video/mp4"/></video></div></div>
+<div class="hero-filter"></div><div class="hero-warm"></div>
+<svg aria-hidden="true" class="hero-arc" preserveaspectratio="none" viewbox="0 0 1280 420"><path class="arc" d="M12 370 Q635 -50 1268 310"></path></svg>
+<span aria-hidden="true" class="hero-aircraft">
+  <svg viewBox="0 0 48 48" focusable="false" role="presentation" xmlns="http://www.w3.org/2000/svg">
+    <path d="M42.4 33.7v-4.1L27 19.6V7.2a4 4 0 0 0-8 0v12.4L3.6 29.6v4.1L19 28.9V40l-4 3v3.1l8-2.4 8 2.4V43l-4-3V28.9l15.4 4.8Z"/>
+  </svg>
+</span>
+<div class="hero-copy"><div class="eyebrow">Do Brasil ao Canadá</div><h1 id="hero-title"><span>Duas Cataratas.</span><em>Uma Jornada Extraordinária.</em></h1><p class="hero-sub">Viva a grandiosidade de Foz do Iguaçu e a imponência das Cataratas do Niágara com a curadoria Primetour.</p><a class="gold-btn" href="https://primetour.com.br/entre-em-contato/" rel="noopener noreferrer" target="_blank">Planeje sua viagem <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a></div>
+<div aria-hidden="true" class="hero-hint"><span class="mouse"></span><span>Role para explorar</span><svg viewbox="0 0 20 20"><path d="m3 6 7 7 7-7"></path></svg></div>
+<div aria-hidden="true" class="video-state"><span class="live-dot"></span><span>PAISAGENS EM MOVIMENTO</span></div><span class="hero-location left">Brasil · Foz do Iguaçu</span><span class="hero-location right">Canadá · Niágara</span>
+
+<div class="hero-bottom-wave"><svg aria-hidden="true" preserveaspectratio="none" viewbox="0 0 1440 80"><path d="M0 19 C220 56 360 68 530 64 S1010 5 1440 21 L1440 80 L0 80Z"></path></svg></div>
+</div></section>
+<section aria-labelledby="pm-foz-title" class="mobile-destination pm-destination pm-foz" id="m-destinos">
+<div class="pm-inner">
+<div class="pm-copy reveal">
+<p class="pm-kicker">Brasil</p><h2 id="pm-foz-title">Foz do Iguaçu</h2>
+<div aria-hidden="true" class="pm-gold-rule"></div><p class="pm-description">Natureza em sua forma mais impressionante. Um encontro com a força das águas.</p>
+</div>
+<figure class="pm-photo reveal"><img alt="Visão panorâmica das quedas d’água rodeadas de floresta em Foz do Iguaçu" height="750" loading="lazy" src="assets/iguacu.webp" width="1200"/><figcaption>Foz do Iguaçu</figcaption></figure>
+<div aria-label="Destaques do destino" class="pm-features"><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M4 25c10-16 20-15 25-20-1 19-10 23-25 20ZM11 24 24 10"></path></svg><span>Parque<br/>Nacional</span></div><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M2 20h28l-6 7H8l-6-7ZM9 20v-7h14v7M16 8v5M12 8h8"></path></svg><span>Passeio<br/>de barco</span></div><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><circle cx="9" cy="20" r="6"></circle><circle cx="23" cy="20" r="6"></circle><path d="m3 18 4-11 6-1 3 12M29 18 25 7l-6-1-3 12"></path></svg><span>Mirantes<br/>exclusivos</span></div></div>
+<a class="pm-outline-cta" href="https://primetour.com.br/entre-em-contato/" rel="noopener noreferrer" target="_blank">Descubra Foz do Iguaçu<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a>
+</div><div aria-hidden="true" class="pm-wave"></div>
+</section>
+<section aria-labelledby="foz-heading" class="destination destination-foz" id="destinos"><div class="destination-media"><img alt="Cataratas do Iguaçu e floresta tropical" loading="lazy" src="assets/iguacu.webp"/></div><div class="destination-content"><div class="section-label reveal">Brasil · Paraná</div><h2 class="reveal delay1" id="foz-heading">Foz do Iguaçu</h2><div class="gold-rule reveal delay1"></div><p class="reveal delay2">Natureza em sua forma mais impressionante.</p><div class="features reveal delay2"><div class="feature"><svg viewbox="0 0 32 32"><path d="M4 25c10-16 20-15 25-20-1 19-10 23-25 20ZM11 24 24 10"></path></svg><span>Parque Nacional</span></div><div class="feature"><svg viewbox="0 0 32 32"><path d="M2 20h28l-6 7H8l-6-7ZM9 20v-7h14v7M16 8v5M12 8h8"></path></svg><span>Passeio de barco</span></div><div class="feature"><svg viewbox="0 0 32 32"><circle cx="9" cy="20" r="6"></circle><circle cx="23" cy="20" r="6"></circle><path d="m3 18 4-11 6-1 3 12M29 18 25 7l-6-1-3 12"></path></svg><span>Mirantes exclusivos</span></div></div><a class="outline-btn reveal delay3" href="https://primetour.com.br/entre-em-contato/" rel="noopener noreferrer" target="_blank">Descubra Foz do Iguaçu <svg viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a></div><svg class="destination-divider" preserveaspectratio="none" viewbox="0 0 1440 49"><path d="M0 39 Q690 75 1440 4L1440 49H0Z"></path></svg></section>
+<section aria-labelledby="pm-niagara-title" class="mobile-destination pm-destination pm-niagara" id="m-roteiro">
+<div class="pm-inner">
+<div class="pm-copy reveal">
+<p class="pm-kicker">Canadá</p><h2 id="pm-niagara-title">Cataratas do<br/>Niágara</h2>
+<div aria-hidden="true" class="pm-gold-rule"></div><p class="pm-description">A força e a beleza de uma das quedas d’água mais famosas do mundo.</p>
+</div>
+<figure class="pm-photo reveal"><img alt="Cataratas do Niágara, águas azul-turquesa e céu de entardecer" height="750" loading="lazy" src="assets/niagara_detail.webp" width="1200"/><figcaption>Cataratas do Niágara</figcaption></figure>
+<div aria-label="Destaques do destino" class="pm-features"><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M16 2v28M16 8l-6-4 2 8-6 4 9 2-1 8 5-6 6 3-3-7 6-6-8 1Z"></path></svg><span>Vista<br/>panorâmica</span></div><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M2 20h28l-6 7H8l-6-7ZM9 20v-7h14v7M16 8v5M12 8h8"></path></svg><span>Passeio<br/>de barco</span></div><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="m16 1 12 10-12 20L4 11 16 1ZM4 11h24M11 2l5 9 5-9M11 11l5 20 5-20"></path></svg><span>Experiências<br/>premium</span></div></div>
+<a class="pm-outline-cta" href="https://primetour.com.br/entre-em-contato/" rel="noopener noreferrer" target="_blank">Descubra Niágara<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a>
+</div><div aria-hidden="true" class="pm-wave"></div>
+</section>
+<section aria-labelledby="niagara-heading" class="destination destination-niagara" id="roteiro"><div class="destination-media"><img alt="Cataratas do Niágara no Canadá sob o céu do entardecer" loading="lazy" src="assets/niagara_detail.webp"/></div><div class="destination-content"><div class="section-label reveal">Canadá · Ontário</div><h2 class="reveal delay1" id="niagara-heading">Cataratas<br/>do Niágara</h2><div class="gold-rule reveal delay1"></div><p class="reveal delay2">A força e a beleza de uma das mais famosas quedas d'água do mundo.</p><div class="features reveal delay2"><div class="feature"><svg viewbox="0 0 32 32"><path d="M16 2v28M16 8l-6-4 2 8-6 4 9 2-1 8 5-6 6 3-3-7 6-6-8 1Z"></path></svg><span>Vista panorâmica</span></div><div class="feature"><svg viewbox="0 0 32 32"><path d="M2 20h28l-6 7H8l-6-7ZM9 20v-7h14v7M16 8v5M12 8h8"></path></svg><span>Passeio de barco</span></div><div class="feature"><svg viewbox="0 0 32 32"><path d="m16 1 12 10-12 20L4 11 16 1ZM4 11h24M11 2l5 9 5-9M11 11l5 20 5-20"></path></svg><span>Experiências premium</span></div></div><a class="outline-btn reveal delay3" href="https://primetour.com.br/entre-em-contato/" rel="noopener noreferrer" target="_blank">Descubra Niágara <svg viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a></div><svg class="destination-divider" preserveaspectratio="none" viewbox="0 0 1440 49"><path d="M0 4 Q600 59 1440 27L1440 49H0Z"></path></svg></section>
+<section aria-labelledby="pm-exp-title" class="mobile-experiences pm-experiences" id="m-experiencias">
+<div class="pm-inner"><p class="pm-kicker pm-kicker-centered">Experiências Primetour</p><h2 class="pm-exp-title reveal" id="pm-exp-title">Mais do que<br/>destinos,<br/><em>vivências únicas.</em></h2>
+<div class="pm-exp-grid"><div class="pm-experience-card reveal"><picture><source media="(max-width:620px)" srcset="assets/experience_1_mobile.webp" type="image/webp"/><img alt="Helicóptero sobre as cataratas ao pôr do sol" loading="lazy" src="assets/experience_1_desktop.webp"/></picture><span class="pm-exp-label"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M2 13h28M16 4v9M9 17h14l-4 5H9l-3-4ZM16 22v4m-8 0h16"></path></svg><span>Voos<br/>panorâmicos</span></span></div><div class="pm-experience-card reveal"><picture><source media="(max-width:620px)" srcset="assets/experience_2_mobile.webp" type="image/webp"/><img alt="Prato refinado e taça em restaurante" loading="lazy" src="assets/experience_2_desktop.webp"/></picture><span class="pm-exp-label"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M7 3v11m5-11v11M7 14h5M9 14v15M23 3c-7 6-7 12 0 14v12"></path></svg><span>Gastronomia<br/>local</span></span></div><div class="pm-experience-card reveal"><picture><source media="(max-width:620px)" srcset="assets/experience_3_mobile.webp" type="image/webp"/><img alt="Quarto sofisticado com vista para cachoeiras" loading="lazy" src="assets/experience_3_desktop.webp"/></picture><span class="pm-exp-label"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M3 16h26v11H3zM3 22h26M6 10h10v6H6zM18 10h9v6h-9"></path></svg><span>Hospedagens<br/>cuidadas</span></span></div><div class="pm-experience-card reveal"><picture><source media="(max-width:620px)" srcset="assets/experience_4_mobile.webp" type="image/webp"/><img alt="Câmera fotografando as cataratas" loading="lazy" src="assets/experience_4_desktop.webp"/></picture><span class="pm-exp-label"><svg aria-hidden="true" viewbox="0 0 32 32"><rect height="20" rx="3" width="26" x="3" y="9"></rect><circle cx="16" cy="19" r="6"></circle><path d="M9 9V5h10l3 4"></path></svg><span>Registros<br/>inesquecíveis</span></span></div></div>
+<p class="pm-footnote">Experiências ilustrativas, sujeitas à disponibilidade e personalização do roteiro.</p></div>
+</section>
+<section class="experiences" id="experiencias"><div class="experiences-grid"><div class="experience-intro"><div class="section-label reveal">Experiências Primetour</div><h2 class="reveal delay1">Mais do que<br/>destinos,<br/><em>vivências únicas.</em></h2></div><article class="experience-card reveal delay1"><picture><source media="(max-width:620px)" srcset="assets/experience_1_mobile.webp" type="image/webp"/><img alt="Helicóptero sobre paisagem de cataratas" loading="lazy" src="assets/experience_1_desktop.webp"/></picture><span><svg viewbox="0 0 24 24"><path d="M3 17h18M12 4v13M5 10h14M7 21h10"></path></svg>Voos panorâmicos</span></article><article class="experience-card reveal delay2"><picture><source media="(max-width:620px)" srcset="assets/experience_2_mobile.webp" type="image/webp"/><img alt="Prato gastronômico servido em experiência sofisticada" loading="lazy" src="assets/experience_2_desktop.webp"/></picture><span><svg viewbox="0 0 24 24"><path d="M4 3v8m4-8v8m-4 0h4m-2 0v10m11-18c-6 5-6 9 0 11v7"></path></svg>Gastronomia local</span></article><article class="experience-card reveal delay3"><picture><source media="(max-width:620px)" srcset="assets/experience_3_mobile.webp" type="image/webp"/><img alt="Suíte de hospedagem com vista para cataratas" loading="lazy" src="assets/experience_3_desktop.webp"/></picture><span><svg viewbox="0 0 24 24"><path d="M2 12h20v8H2zM2 16h20M5 8h7v4H5zM14 8h6v4h-6"></path></svg>Hospedagens cuidadas</span></article><article class="experience-card reveal delay4"><picture><source media="(max-width:620px)" srcset="assets/experience_4_mobile.webp" type="image/webp"/><img alt="Fotografia das cataratas" loading="lazy" src="assets/experience_4_desktop.webp"/></picture><span><svg viewbox="0 0 24 24"><rect height="15" rx="2" width="20" x="2" y="6"></rect><circle cx="12" cy="13" r="4"></circle><path d="M7 6V3h8l2 3"></path></svg>Registros inesquecíveis</span></article></div><p class="experience-footnote">Experiências ilustrativas, sujeitas à disponibilidade e personalização do roteiro.</p></section>
+<section aria-labelledby="pm-final-title" class="mobile-final-cta pm-final">
+<div aria-hidden="true" class="pm-final-backdrop"></div>
+<div class="pm-final-content"><p class="pm-kicker pm-kicker-centered">Pronto para viver essa jornada?</p>
+<h2 class="reveal" id="pm-final-title">Foz do Iguaçu e<br/>Cataratas do Niágara<br/><em>esperam por você.</em></h2>
+<a class="gold-btn pm-final-btn" href="https://primetour.com.br/entre-em-contato/" rel="noopener noreferrer" target="_blank">Fale com um especialista <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a>
+</div><div aria-hidden="true" class="pm-traveler"></div>
+<div aria-hidden="true" class="pm-stamp"><svg viewbox="0 0 100 100"><circle cx="50" cy="50" r="44"></circle><circle cx="50" cy="50" r="37" stroke-dasharray="2.5 3.5"></circle><path d="m21 59 59-17M35 26l10 5M55 27l9 2M32 74l14-9 9 10 13-15"></path></svg><span>BRASIL → CANADÁ</span></div>
+</section>
+<section class="cta"><div class="section-label reveal">Pronto para viver essa jornada?</div><h2 class="reveal delay1">Foz do Iguaçu e Cataratas do Niágara<br/><em>esperam por você.</em></h2><a class="gold-btn reveal delay2" href="https://primetour.com.br/entre-em-contato/" rel="noopener noreferrer" target="_blank">Fale com um especialista <svg viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a><small class="reveal delay2">Uma viagem personalizada começa com uma boa conversa.</small></section>
+</main>
+<footer class="footer"><p>Projeto conceitual independente para demonstração visual. Não é uma campanha oficial, oferta de viagem ou canal de reservas da PRIMETOUR. Imagens ilustrativas. Vídeos: May Barros e Pixabay via Pexels, conforme licença Pexels.</p><a href="https://primetour.com.br" rel="noopener noreferrer" target="_blank">Conheça o site oficial da Primetour</a></footer>
+<script>
+(()=>{'use strict';
+const doc=document,body=doc.body,hero=doc.querySelector('.hero'),stage=doc.querySelector('.hero-sticky'),nav=doc.querySelector('#nav'),bar=doc.querySelector('#progress'),mobile=doc.querySelector('#mobile-menu'),toggle=doc.querySelector('.nav-menu');
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function setMenu(isOpen){mobile.classList.toggle('open',isOpen);body.classList.toggle('menu-open',isOpen);toggle.setAttribute('aria-expanded',String(isOpen));toggle.setAttribute('aria-label',isOpen?'Fechar menu':'Abrir menu')};toggle.addEventListener('click',()=>setMenu(!mobile.classList.contains('open')));mobile.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));document.addEventListener('keydown',e=>{if(e.key==='Escape')setMenu(false)});
+const io=new IntersectionObserver(items=>items.forEach(item=>{if(item.isIntersecting){item.target.classList.add('inview');io.unobserve(item.target)}}),{threshold:.1,rootMargin:'0px 0px -16px 0px'});doc.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+let busy=false;const clamp=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));function scroll(){const y=window.scrollY,vh=window.innerHeight,hs=Math.max(hero.offsetHeight-vh,1);let p=clamp(y/hs);stage.style.setProperty('--p',reduce?0:p.toFixed(4));stage.style.setProperty('--hero-zoom',(1.03+(reduce?0:p)*.035).toFixed(4));stage.style.setProperty('--hero-offset',`${(reduce?0:p)*45}px`);nav.classList.toggle('scrolled',y>50);bar.style.transform=`scaleX(${clamp(y/Math.max(doc.documentElement.scrollHeight-vh,1))})`;busy=false}window.addEventListener('scroll',()=>{if(!busy){busy=true;requestAnimationFrame(scroll)}},{passive:true});window.addEventListener('resize',scroll);scroll();
+
+const mobileAnchors = {'#destinos':'#m-destinos','#roteiro':'#m-roteiro','#experiencias':'#m-experiencias'};
+const syncAnchors=()=>{const isMobile=window.matchMedia('(max-width:620px)').matches;doc.querySelectorAll('.nav a[href^="#"],.mobile-menu a[href^="#"]').forEach(a=>{const original=a.dataset.originalHash||a.getAttribute('href');a.dataset.originalHash=original;a.setAttribute('href',isMobile?(mobileAnchors[original]||original):original)})};
+syncAnchors();window.addEventListener('resize',syncAnchors);
+
+const vids=[doc.getElementById('foz-video'),doc.getElementById('niagara-video')].filter(Boolean);for(const v of vids){if(window.matchMedia('(max-width:620px)').matches && v.id==='niagara-video'){v.pause();v.removeAttribute('autoplay');continue}v.muted=true;v.defaultMuted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');if(reduce){v.pause();continue}v.addEventListener('error',()=>{v.style.opacity='0';v.parentElement.classList.add('video-fallback')});v.addEventListener('canplay',()=>v.style.opacity='1');v.play().catch(()=>{v.style.opacity='0'})}
+const vio=new IntersectionObserver(es=>es.forEach(({target,isIntersecting})=>{if(reduce)return;if(isIntersecting)target.play().catch(()=>{});else target.pause()}),{threshold:.04});vids.forEach(v=>vio.observe(v));
+window.addEventListener('load',()=>body.classList.add('loaded'));setTimeout(()=>body.classList.add('loaded'),350);})();
+</script>
+</body>
+</html>
