@@ -834,10 +834,9 @@ function animateFlight(){
     const x=arcRect.left-heroRect.left+p.x*scaleX;
     const y=arcRect.top-heroRect.top+p.y*scaleY;
     const angle=Math.atan2((after.y-before.y)*scaleY,(after.x-before.x)*scaleX)*180/Math.PI;
-    plane.style.left=x+'px';
-    plane.style.top=y+'px';
+    // Animate by transform only: avoids layout recalculation on each frame.
     // The source airplane SVG points upward; rotate its nose along the path tangent.
-    plane.style.transform='translate(-50%,-50%) rotate('+(angle+90)+'deg)';
+    plane.style.transform='translate3d('+x+'px,'+y+'px,0) translate(-50%,-50%) rotate('+(angle+90)+'deg)';
   }
   positionPlane(progress);
   window.addEventListener('resize',()=>positionPlane(progress),{passive:true});
