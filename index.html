@@ -21,7 +21,7 @@
 <title>Duas cataratas. Uma jornada extraordinária. — Conceito Primetour</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="preload" as="style" onload="this.onload=null;this.rel=\'stylesheet\'"/><noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/></noscript>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/></noscript>
 <link as="image" href="assets/iguacu.webp" rel="preload" fetchpriority="high"/>
 <link as="image" href="assets/niagara_detail.webp" media="(max-width:620px)" rel="preload" fetchpriority="high"/>
 <style>
@@ -648,16 +648,13 @@ html.pt-intro-leaving .pt-intro{transition:opacity .84s cubic-bezier(.19,1,.22,1
     finished=true;
     clearTimeout(watchdog);
     try{window.sessionStorage.setItem('primetour_intro_seen_v3','1')}catch(e){}
+    window.primetourStartHero?.();
     html.classList.add('pt-intro-leaving');
     film.pause();
     leaveTimer=setTimeout(()=>{
       html.classList.remove('pt-intro-active','pt-intro-leaving');
       root.remove();
-      const heroVideo=document.getElementById('foz-video');
-      if(heroVideo&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
-        heroVideo.play().catch(()=>{});
-      }
-    },760);
+    },840);
   };
   skip.addEventListener('click',e=>{e.stopPropagation();closeIntro()});
   root.addEventListener('click',e=>{
@@ -674,6 +671,7 @@ html.pt-intro-leaving .pt-intro{transition:opacity .84s cubic-bezier(.19,1,.22,1
   const onKey=e=>{if(e.key==='Escape'||e.key==='Enter'&&document.activeElement===root){closeIntro();document.removeEventListener('keydown',onKey)}};
   document.addEventListener('keydown',onKey);
   film.addEventListener('playing',()=>root.classList.add('is-playing'),{once:true});
+  film.addEventListener('timeupdate',()=>{if(film.currentTime>=3.3)window.primetourPrepareHero?.()});
   film.addEventListener('ended',closeIntro,{once:true});
   film.addEventListener('error',closeIntro,{once:true});
   const mobile=window.matchMedia('(max-width:760px) and (orientation:portrait)').matches;
@@ -698,7 +696,7 @@ html.pt-intro-leaving .pt-intro{transition:opacity .84s cubic-bezier(.19,1,.22,1
 <main>
 <section aria-labelledby="hero-title" class="hero" id="inicio">
 <div class="hero-sticky">
-<div class="hero-scene"><div class="hero-foz"><video aria-label="Imagens em movimento das Cataratas do Iguaçu" autoplay="" id="foz-video" loop="" muted="" playsinline="" poster="assets/iguacu.webp" preload="metadata" webkit-playsinline=""><source src="https://videos.pexels.com/video-files/1897273/1897273-hd_1920_1080_30fps.mp4" type="video/mp4"/></video></div><div class="hero-niagara"><video aria-label="Imagens em movimento das Cataratas do Niágara" autoplay="" id="niagara-video" loop="" muted="" playsinline="" poster="assets/niagara_detail.webp" preload="none" webkit-playsinline=""><source src="https://videos.pexels.com/video-files/855901/855901-hd_1920_1080_30fps.mp4" type="video/mp4"/></video></div></div>
+<div class="hero-scene"><div class="hero-foz"><video aria-label="Imagens em movimento das Cataratas do Iguaçu" id="foz-video" loop muted playsinline poster="assets/iguacu.webp" preload="none" webkit-playsinline><source data-src-desktop="https://d2ol7oe51mr4n9.cloudfront.net/user_3CLn5RhS28nQ4GTOthpp4FnTGNC/c97bea0f-a12d-4c35-9f0d-72aac51f3ad1.mp4" data-src-mobile="https://d2ol7oe51mr4n9.cloudfront.net/user_3CLn5RhS28nQ4GTOthpp4FnTGNC/0ac7248e-55f3-41a7-b882-e3cfcc1811de.mp4" type="video/mp4"/></video></div><div class="hero-niagara"><video aria-label="Imagens em movimento das Cataratas do Niágara" id="niagara-video" loop muted playsinline poster="assets/niagara_detail.webp" preload="none" webkit-playsinline><source data-src-desktop="https://d2ol7oe51mr4n9.cloudfront.net/user_3CLn5RhS28nQ4GTOthpp4FnTGNC/b1370ca3-bdd1-410e-b325-75ea7e43f90d.mp4" type="video/mp4"/></video></div></div>
 <div class="hero-filter"></div><div class="hero-warm"></div>
 <svg aria-hidden="true" class="hero-arc" preserveaspectratio="none" viewbox="0 0 1280 420"><path class="arc" d="M12 370 Q635 -50 1268 310"></path></svg>
 <span aria-hidden="true" class="hero-aircraft">
@@ -864,8 +862,47 @@ const mobileAnchors = {'#destinos':'#m-destinos','#roteiro':'#m-roteiro','#exper
 const syncAnchors=()=>{const isMobile=window.matchMedia('(max-width:620px)').matches;doc.querySelectorAll('.nav a[href^="#"],.mobile-menu a[href^="#"]').forEach(a=>{const original=a.dataset.originalHash||a.getAttribute('href');a.dataset.originalHash=original;a.setAttribute('href',isMobile?(mobileAnchors[original]||original):original)})};
 syncAnchors();window.addEventListener('resize',syncAnchors);
 
-const vids=[doc.getElementById('foz-video'),doc.getElementById('niagara-video')].filter(Boolean);for(const v of vids){if(window.matchMedia('(max-width:620px)').matches && v.id==='niagara-video'){v.pause();v.removeAttribute('autoplay');continue}v.muted=true;v.defaultMuted=true;v.setAttribute('muted','');v.setAttribute('playsinline','');v.setAttribute('webkit-playsinline','');if(reduce){v.pause();continue}v.addEventListener('error',()=>{v.style.opacity='0';v.parentElement.classList.add('video-fallback')});v.addEventListener('canplay',()=>v.style.opacity='1');v.play().catch(()=>{v.style.opacity='0'})}
-const vio=new IntersectionObserver(es=>es.forEach(({target,isIntersecting})=>{if(reduce)return;if(isIntersecting)target.play().catch(()=>{});else target.pause()}),{threshold:.04});vids.forEach(v=>vio.observe(v));
+/* Responsive, demand-loaded hero films: postpone until intro approaches its finish. */
+const vids=[doc.getElementById('foz-video'),doc.getElementById('niagara-video')].filter(Boolean);
+const mobileView=window.matchMedia('(max-width:620px)');
+let heroPrepared=false;
+function prepareHeroFilms(){
+  if(reduce||heroPrepared)return;
+  heroPrepared=true;
+  for(const v of vids){
+    if(mobileView.matches&&v.id==='niagara-video')continue;
+    const source=v.querySelector('source');
+    if(!source)continue;
+    source.src=(mobileView.matches&&source.dataset.srcMobile)||source.dataset.srcDesktop;
+    v.muted=true;v.defaultMuted=true;v.playsInline=true;
+    v.load();
+  }
+}
+function startHeroFilms(){
+  if(reduce)return;
+  prepareHeroFilms();
+  for(const v of vids){
+    if(mobileView.matches&&v.id==='niagara-video')continue;
+    const r=v.getBoundingClientRect();
+    if(r.bottom>0&&r.top<window.innerHeight)v.play().catch(()=>{});
+  }
+}
+window.primetourPrepareHero=prepareHeroFilms;
+window.primetourStartHero=startHeroFilms;
+for(const v of vids){
+  v.addEventListener('error',()=>{v.style.opacity='0';v.parentElement.classList.add('video-fallback')});
+  v.addEventListener('canplay',()=>{v.style.opacity='1'});
+}
+const vio=new IntersectionObserver(entries=>{
+  if(reduce||!heroPrepared||doc.documentElement.classList.contains('pt-intro-active'))return;
+  for(const {target,isIntersecting} of entries){
+    if(mobileView.matches&&target.id==='niagara-video')continue;
+    if(isIntersecting)target.play().catch(()=>{});
+    else target.pause();
+  }
+},{threshold:.04});
+vids.forEach(v=>vio.observe(v));
+if(!doc.documentElement.classList.contains('pt-intro-active'))startHeroFilms();
 window.addEventListener('load',()=>body.classList.add('loaded'));setTimeout(()=>body.classList.add('loaded'),350);})();
 </script>
 </body>
