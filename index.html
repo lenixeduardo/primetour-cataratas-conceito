@@ -22,6 +22,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'"/><noscript><link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet"/></noscript>
+<link as="image" href="assets/primetour-script-white.svg" rel="preload" fetchpriority="high"/>
 <link as="image" href="assets/iguacu.webp" rel="preload" fetchpriority="high"/>
 <link as="image" href="assets/niagara_detail.webp" media="(max-width:620px)" rel="preload" fetchpriority="high"/>
 <style>
@@ -620,6 +621,12 @@ html.pt-intro-leaving .pt-intro{transition:opacity .84s cubic-bezier(.19,1,.22,1
  .pm-experiences{padding-top:54px!important;padding-bottom:62px!important}
 }
 @media(prefers-reduced-motion:reduce){.pt-intro-film{transition:none!important}}
+
+/* Defer lower-page painting without changing scroll geometry on narrow screens. */
+@media(max-width:620px){
+ .magazine-section{content-visibility:auto;contain-intrinsic-size:auto 819px}
+ .prime-footer{content-visibility:auto;contain-intrinsic-size:auto 1024px}
+}
 
 </style>
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/></head>
