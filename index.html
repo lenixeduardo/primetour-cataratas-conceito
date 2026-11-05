@@ -451,6 +451,31 @@ html,body{background:var(--site-blue)}
     transform:translateX(-28px);
   }
 }
+
+/* V11: clean, transparent recommended destination stamp */
+@media(max-width:620px){
+  .pm-stamp{
+    right:7%;
+    bottom:66px;
+    width:clamp(120px,34vw,158px);
+    height:auto;
+    aspect-ratio:1;
+    transform:rotate(-9deg);
+    color:#F7F6F3;
+    filter:drop-shadow(0 3px 9px #05041b7a);
+    opacity:.95;
+    pointer-events:none;
+  }
+  .pm-stamp img{
+    display:block;
+    width:100%;
+    height:100%;
+    object-fit:contain;
+  }
+}
+@media(max-width:360px){
+  .pm-stamp{width:112px;right:5%;bottom:62px}
+}
 </style>
 <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/>
 <script id="wix-site-script" src="https://manage.wix.com/_api/headless-business-setup/v1/headless-business/site-script.js" data-client-id="0ecdf3b9-29a2-4abe-86c0-8354cf4f671f" async></script></head>
@@ -516,7 +541,7 @@ html,body{background:var(--site-blue)}
 <h2 class="reveal" id="pm-final-title">Foz do Iguaçu e<br/>Cataratas do Niágara<br/><em>esperam por você.</em></h2>
 <a class="gold-btn pm-final-btn" href="https://api.whatsapp.com/send?phone=551131784890&amp;text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20roteiros%20para%20Foz%20do%20Igua%C3%A7u%20e%20Cataratas%20do%20Ni%C3%A1gara." rel="noopener noreferrer" target="_blank">Fale com um especialista <svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a>
 </div><div aria-hidden="true" class="pm-traveler"></div>
-<div aria-hidden="true" class="pm-stamp"><svg viewbox="0 0 100 100"><circle cx="50" cy="50" r="44"></circle><circle cx="50" cy="50" r="37" stroke-dasharray="2.5 3.5"></circle><path d="m21 59 59-17M35 26l10 5M55 27l9 2M32 74l14-9 9 10 13-15"></path></svg><span>BRASIL → CANADÁ</span></div>
+<div class="pm-stamp" aria-label="Selo conceitual Primetour: destino recomendado"><img src="assets/primetour-destino-recomendado.svg" alt="Primetour — Destino recomendado" width="400" height="400" loading="lazy" decoding="async"/></div>
 </section>
 <section class="cta"><div class="section-label reveal">Pronto para viver essa jornada?</div><h2 class="reveal delay1">Foz do Iguaçu e Cataratas do Niágara<br/><em>esperam por você.</em></h2><a class="gold-btn reveal delay2" href="https://api.whatsapp.com/send?phone=551131784890&amp;text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20roteiros%20para%20Foz%20do%20Igua%C3%A7u%20e%20Cataratas%20do%20Ni%C3%A1gara." rel="noopener noreferrer" target="_blank">Fale com um especialista <svg viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a><small class="reveal delay2">Uma viagem personalizada começa com uma boa conversa.</small></section>
 
