@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" role="img" aria-labelledby="sealTitle">
+<title id="sealTitle">PRIMETOUR — Destino recomendado</title>
+<g fill="none" stroke="#F7F6F3" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="200" cy="200" r="187" stroke-width="3.8" opacity=".94"/>
+  <circle cx="200" cy="200" r="170" stroke-width="4.5" stroke-dasharray="5 10" opacity=".92"/>
+  <path d="M119 107 158 79 185 94 210 66 253 108 M149 105l34-28 27 16 13-7 29 20" stroke-width="3" opacity=".97"/>
+  <path d="M200 98v-34m0 20-17 8v7l17-4 17 4v-7l-17-8Zm0 17-6 5v5l6-2 6 2v-5l-6-5" stroke-width="2.5" transform="translate(0 -11) scale(.7) translate(85 49)" opacity=".98"/>
+  <path d="M101 174h75 M224 174h75" stroke-width="2.2"/>
+  <path d="M175 172l16-5-3 7 3 7-16-5" stroke-width="1.5" opacity=".95"/>
+  <path d="M53 202 Q200 182 347 202 L347 278 Q200 297 53 278Z" stroke-width="3.5"/>
+  <path d="M150 319l28 27 72-71" stroke-width="7"/>
+  <circle cx="200" cy="314" r="52" stroke-width="2.5" stroke-dasharray="104 240" transform="rotate(35 200 314)" opacity=".93"/>
+</g>
+<g fill="#F7F6F3" text-anchor="middle" font-family="Montserrat,Arial,Helvetica,sans-serif">
+  <text x="200" y="153" font-size="35" font-weight="400" letter-spacing="4.3">PRIMETOUR</text>
+  <text x="200" y="234" font-size="33" font-weight="650" letter-spacing="4">DESTINO</text>
+  <text x="200" y="267" font-size="25.8" font-weight="650" letter-spacing="2.0">RECOMENDADO</text>
+</g>
+</svg>
