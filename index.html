@@ -649,6 +649,7 @@ html.pt-intro-leaving .pt-intro{transition:opacity .84s cubic-bezier(.19,1,.22,1
     clearTimeout(watchdog);
     try{window.sessionStorage.setItem('primetour_intro_seen_v3','1')}catch(e){}
     window.primetourStartHero?.();
+    window.primetourStartFlight?.();
     html.classList.add('pt-intro-leaving');
     film.pause();
     leaveTimer=setTimeout(()=>{
@@ -716,7 +717,7 @@ html.pt-intro-leaving .pt-intro{transition:opacity .84s cubic-bezier(.19,1,.22,1
 <p class="pm-kicker">Brasil</p><h2 id="pm-foz-title">Foz do Iguaçu</h2>
 <div aria-hidden="true" class="pm-gold-rule"></div><p class="pm-description">Natureza em sua forma mais impressionante. Um encontro com a força das águas.</p>
 </div>
-<figure class="pm-photo reveal"><img alt="Visão panorâmica das quedas d’água rodeadas de floresta em Foz do Iguaçu" height="750" loading="lazy" src="assets/iguacu.webp" width="1200"/><figcaption>Foz do Iguaçu</figcaption></figure>
+<figure class="pm-photo reveal"><img alt="Visão panorâmica das quedas d’água rodeadas de floresta em Foz do Iguaçu" height="941" loading="lazy" src="assets/iguacu.webp" width="1672"/><figcaption>Foz do Iguaçu</figcaption></figure>
 <div aria-label="Destaques do destino" class="pm-features"><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M4 25c10-16 20-15 25-20-1 19-10 23-25 20ZM11 24 24 10"></path></svg><span>Parque<br/>Nacional</span></div><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M2 20h28l-6 7H8l-6-7ZM9 20v-7h14v7M16 8v5M12 8h8"></path></svg><span>Passeio<br/>de barco</span></div><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><circle cx="9" cy="20" r="6"></circle><circle cx="23" cy="20" r="6"></circle><path d="m3 18 4-11 6-1 3 12M29 18 25 7l-6-1-3 12"></path></svg><span>Mirantes<br/>exclusivos</span></div></div>
 <a class="pm-outline-cta" href="https://api.whatsapp.com/send?phone=551131784890&amp;text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20roteiros%20para%20Foz%20do%20Igua%C3%A7u%20e%20Cataratas%20do%20Ni%C3%A1gara." rel="noopener noreferrer" target="_blank">Descubra Foz do Iguaçu<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a>
 </div><div aria-hidden="true" class="pm-wave"></div>
@@ -728,7 +729,7 @@ html.pt-intro-leaving .pt-intro{transition:opacity .84s cubic-bezier(.19,1,.22,1
 <p class="pm-kicker">Canadá</p><h2 id="pm-niagara-title">Cataratas do<br/>Niágara</h2>
 <div aria-hidden="true" class="pm-gold-rule"></div><p class="pm-description">A força e a beleza de uma das quedas d’água mais famosas do mundo.</p>
 </div>
-<figure class="pm-photo reveal"><img alt="Cataratas do Niágara, águas azul-turquesa e céu de entardecer" height="750" loading="lazy" src="assets/niagara_detail.webp" width="1200"/><figcaption>Cataratas do Niágara</figcaption></figure>
+<figure class="pm-photo reveal"><img alt="Cataratas do Niágara, águas azul-turquesa e céu de entardecer" height="719" loading="lazy" src="assets/niagara_detail.webp" width="1200"/><figcaption>Cataratas do Niágara</figcaption></figure>
 <div aria-label="Destaques do destino" class="pm-features"><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M16 2v28M16 8l-6-4 2 8-6 4 9 2-1 8 5-6 6 3-3-7 6-6-8 1Z"></path></svg><span>Vista<br/>panorâmica</span></div><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="M2 20h28l-6 7H8l-6-7ZM9 20v-7h14v7M16 8v5M12 8h8"></path></svg><span>Passeio<br/>de barco</span></div><div class="pm-feature"><svg aria-hidden="true" viewbox="0 0 32 32"><path d="m16 1 12 10-12 20L4 11 16 1ZM4 11h24M11 2l5 9 5-9M11 11l5 20 5-20"></path></svg><span>Experiências<br/>premium</span></div></div>
 <a class="pm-outline-cta" href="https://api.whatsapp.com/send?phone=551131784890&amp;text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20roteiros%20para%20Foz%20do%20Igua%C3%A7u%20e%20Cataratas%20do%20Ni%C3%A1gara." rel="noopener noreferrer" target="_blank">Descubra Niágara<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a>
 </div><div aria-hidden="true" class="pm-wave"></div>
@@ -856,7 +857,9 @@ function animateFlight(){
   }
   requestAnimationFrame(tick);
 }
-animateFlight();
+let flightStarted=false;
+window.primetourStartFlight=()=>{if(flightStarted)return;flightStarted=true;animateFlight()};
+if(!document.documentElement.classList.contains('pt-intro-active'))window.primetourStartFlight();
 
 const mobileAnchors = {'#destinos':'#m-destinos','#roteiro':'#m-roteiro','#experiencias':'#m-experiencias'};
 const syncAnchors=()=>{const isMobile=window.matchMedia('(max-width:620px)').matches;doc.querySelectorAll('.nav a[href^="#"],.mobile-menu a[href^="#"]').forEach(a=>{const original=a.dataset.originalHash||a.getAttribute('href');a.dataset.originalHash=original;a.setAttribute('href',isMobile?(mobileAnchors[original]||original):original)})};
