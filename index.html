@@ -3,6 +3,18 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8"/>
+<!-- Vinheta PRIMETOUR: determine visibility before first paint -->
+<script>
+(function(){
+  try {
+    const motionOK=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(motionOK&&!window.sessionStorage.getItem('primetour_intro_seen_v3')&&!window.location.hash){
+      document.documentElement.classList.add('pt-intro-active');
+    }
+  }catch(e){}
+})();
+</script>
+
 <meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/>
 <meta content="#140c47" name="theme-color"/>
 <meta content="Experiência digital conceitual para viagens sob medida às Cataratas do Iguaçu e do Niágara. Uma apresentação não oficial inspirada no universo PRIMETOUR." name="description"/>
@@ -552,10 +564,92 @@ html,body{background:var(--site-blue)}
     transform:none!important;
   }
 }
+
+/* PRIMETOUR — opening cinematic ident, isolated from page layout */
+.pt-intro{display:none;position:fixed;inset:0;z-index:10000;background:#140c47;overflow:hidden;isolation:isolate;touch-action:manipulation;}
+html.pt-intro-active .pt-intro{display:block}
+html.pt-intro-active,html.pt-intro-active body{overflow:hidden!important;}
+.pt-intro-film{position:absolute;inset:0;width:100%;height:100%;background:#140c47;object-fit:cover;opacity:0;transition:opacity .22s ease;will-change:opacity;}
+.pt-intro.is-playing .pt-intro-film{opacity:1;}
+.pt-intro-fallback{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#140c47;pointer-events:none;transition:opacity .25s ease;}
+.pt-intro-fallback img{display:block;width:min(68vw,850px);height:auto;max-height:35vh;object-fit:contain;}
+.pt-intro.is-playing .pt-intro-fallback{opacity:0}
+.pt-intro-control{position:absolute;z-index:3;top:max(20px,env(safe-area-inset-top));border:1px solid rgba(255,255,255,.42);border-radius:999px;background:rgba(20,12,71,.56);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);color:#fff;padding:11px 17px;font:500 12px/1.25 var(--sans);letter-spacing:.02em;cursor:pointer;white-space:nowrap;}
+.pt-intro-control:hover,.pt-intro-control:focus-visible{background:rgba(20,12,71,.84);outline:2px solid #fff;outline-offset:3px}
+.pt-intro-sound{left:max(20px,env(safe-area-inset-left));}
+.pt-intro-skip{right:max(20px,env(safe-area-inset-right));}
+.pt-intro-hint{position:absolute;z-index:2;bottom:max(26px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);color:rgba(255,255,255,.78);font:400 11px/1.4 var(--sans);white-space:nowrap;letter-spacing:.08em;text-transform:uppercase;pointer-events:none;}
+html.pt-intro-leaving .pt-intro{opacity:0;pointer-events:none;transition:opacity .72s cubic-bezier(.19,1,.22,1);}
+@media(max-width:760px){.pt-intro-fallback img{width:min(77vw,420px)}.pt-intro-control{font-size:11px;padding:10px 13px;top:max(16px,env(safe-area-inset-top))}.pt-intro-hint{font-size:10px;letter-spacing:.04em;bottom:max(22px,env(safe-area-inset-bottom));}}
+@media(prefers-reduced-motion:reduce){.pt-intro{display:none!important}}
+
 </style>
 <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/>
 <script id="wix-site-script" src="https://manage.wix.com/_api/headless-business-setup/v1/headless-business/site-script.js" data-client-id="0ecdf3b9-29a2-4abe-86c0-8354cf4f671f" async></script></head>
 <body>
+<!-- Vinheta institucional — funciona sem modificar a hero existente -->
+<section class="pt-intro" id="pt-intro" role="dialog" aria-modal="true" aria-label="Vinheta de boas-vindas PRIMETOUR">
+  <div class="pt-intro-fallback" aria-hidden="true"><img src="assets/primetour-script-white.svg" alt=""/></div>
+  <video class="pt-intro-film" id="pt-intro-film" autoplay muted playsinline webkit-playsinline preload="auto" aria-label="Vinheta PRIMETOUR, com transição para as Cataratas do Iguaçu"></video>
+  <button type="button" class="pt-intro-control pt-intro-sound" id="pt-intro-sound" aria-label="Ativar áudio da vinheta">Ativar som</button>
+  <button type="button" class="pt-intro-control pt-intro-skip" id="pt-intro-skip" aria-label="Pular vinheta e abrir página">Pular introdução</button>
+  <span class="pt-intro-hint" aria-hidden="true">Toque para explorar as Cataratas</span>
+</section>
+<script>
+(function(){
+  'use strict';
+  const html=document.documentElement,root=document.getElementById('pt-intro');
+  if(!root||!html.classList.contains('pt-intro-active')){root?.remove();return}
+  const film=document.getElementById('pt-intro-film');
+  const skip=document.getElementById('pt-intro-skip');
+  const sound=document.getElementById('pt-intro-sound');
+  let finished=false;
+  let watchdog=null;
+  let leaveTimer=null;
+  const closeIntro=()=>{
+    if(finished)return;
+    finished=true;
+    clearTimeout(watchdog);
+    try{window.sessionStorage.setItem('primetour_intro_seen_v3','1')}catch(e){}
+    html.classList.add('pt-intro-leaving');
+    film.pause();
+    leaveTimer=setTimeout(()=>{
+      html.classList.remove('pt-intro-active','pt-intro-leaving');
+      root.remove();
+      const heroVideo=document.getElementById('foz-video');
+      if(heroVideo&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+        heroVideo.play().catch(()=>{});
+      }
+    },760);
+  };
+  skip.addEventListener('click',e=>{e.stopPropagation();closeIntro()});
+  root.addEventListener('click',e=>{
+    if(e.target.closest('#pt-intro-sound')||e.target.closest('#pt-intro-skip'))return;
+    closeIntro();
+  });
+  sound.addEventListener('click',e=>{
+    e.stopPropagation();
+    film.muted=!film.muted;
+    sound.textContent=film.muted?'Ativar som':'Desativar som';
+    sound.setAttribute('aria-label',film.muted?'Ativar áudio da vinheta':'Desativar áudio da vinheta');
+    if(film.paused)film.play().catch(()=>{});
+  });
+  const onKey=e=>{if(e.key==='Escape'||e.key==='Enter'&&document.activeElement===root){closeIntro();document.removeEventListener('keydown',onKey)}};
+  document.addEventListener('keydown',onKey);
+  film.addEventListener('playing',()=>root.classList.add('is-playing'),{once:true});
+  film.addEventListener('ended',closeIntro,{once:true});
+  film.addEventListener('error',closeIntro,{once:true});
+  const mobile=window.matchMedia('(max-width:760px) and (orientation:portrait)').matches;
+  film.src=mobile?'https://d2ol7oe51mr4n9.cloudfront.net/user_3CLn5RhS28nQ4GTOthpp4FnTGNC/db7bc570-867c-4ccf-a3d6-9fd8dc6bfca1.mp4':'https://d2ol7oe51mr4n9.cloudfront.net/user_3CLn5RhS28nQ4GTOthpp4FnTGNC/b922f51a-fe64-46b1-bc77-f5c9d5c5b31a.mp4';
+  film.muted=true;
+  film.defaultMuted=true;
+  film.playsInline=true;
+  watchdog=setTimeout(closeIntro,9500);
+  const started=film.play();
+  if(started&&typeof started.catch==='function')started.catch(()=>{watchdog=setTimeout(closeIntro,800)});
+})();
+</script>
+
 <div aria-hidden="true" id="progress"></div>
 <header class="nav" id="nav">
 <a aria-label="Início — PRIMETOUR" class="logo-link" href="#inicio"><span class="logo-wrap"><img alt="PRIMETOUR — Viagens &amp; Experiências" id="official-logo" onerror="this.hidden=true;this.parentElement.classList.add('logo-error')" src="assets/primetour-script-white.svg"/><span class="logo-fallback">PRIMETOUR</span></span></a>
