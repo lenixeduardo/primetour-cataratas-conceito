@@ -286,6 +286,33 @@
 .pm-outline-cta:hover {background:#E6E5F020;}
 .pm-feature svg,.pm-exp-label svg,.outline-btn svg {stroke:#E0DEE9;}
 @media(max-width:620px){.nav{background:#17182FF2!important;border-bottom-color:#DDDDE72B}.mobile-menu{background:#17182FF4}.pm-destination,.pm-experiences{background:#18182F!important}.pm-niagara{background:radial-gradient(ellipse at 10% 5%,#5D5B8A2C,transparent 55%),#18182F!important}.pm-final{background:#17182F!important}}
+
+/* Footer PRIMETOUR: reference-aligned composition, scoped to avoid other sections. */
+.prime-footer{background:#fff;color:#7d7d7d;text-align:center;font-family:'Montserrat',var(--sans);overflow:hidden}
+.prime-footer-hero{display:flex;flex-direction:column;justify-content:center;align-items:center;background:#140c47;padding:55px 22px 51px;min-height:380px}
+.prime-footer-script{display:block;width:min(650px,94vw);height:auto;max-width:100%;object-fit:contain}
+.prime-footer-cta{display:inline-flex;align-items:center;justify-content:center;min-height:46px;margin-top:39px;padding:12px 26px;background:#2e2f5b;color:#fff;border:0;border-radius:3px;font-size:15px;font-weight:600;letter-spacing:-.018em;line-height:1.25;text-decoration:none;transition:background .2s ease,transform .2s ease}
+.prime-footer-cta:hover{background:#434570;transform:translateY(-2px)}
+.prime-footer-cta:focus-visible,.prime-footer a:focus-visible{outline:2px solid #9e8dd6;outline-offset:5px}
+.prime-footer-details{display:flex;flex-direction:column;align-items:center;padding:48px 22px 43px;background:#fff}
+.prime-footer-logo{display:block;width:min(485px,88vw);height:auto;object-fit:contain}
+.prime-footer-logo-fallback{font:400 clamp(28px,5vw,52px)/1.1 var(--serif);color:#140c47}
+.prime-footer-contact{margin-top:54px;font-size:clamp(14px,1.85vw,19px);line-height:1.5;font-weight:300;max-width:100%;letter-spacing:.005em}
+.prime-footer-contact p,.prime-footer-dpo p{margin:0}
+.prime-footer-contact .phone{font-weight:700;letter-spacing:-.02em}
+.prime-footer-contact a,.prime-footer-dpo a{color:inherit;text-decoration:none}
+.prime-footer-contact a:hover,.prime-footer-dpo a:hover{text-decoration:underline}
+.prime-footer-dpo{font-size:clamp(13px,1.8vw,18px);font-weight:300;line-height:1.5;max-width:100%;letter-spacing:.005em;overflow-wrap:anywhere}
+.prime-footer-dpo.primary{margin-top:24px}
+.prime-footer-dpo.substitute{margin-top:20px}
+.prime-footer-dpo a{text-decoration:underline;text-underline-offset:3px}
+.prime-footer-legal{background:#f7f7f8;color:#777;padding:16px 22px 20px;font-size:10px;line-height:1.55}
+.prime-footer-legal p{margin:0 auto;max-width:850px}
+.prime-footer-legal a{text-decoration:underline}
+@media(min-width:851px){.prime-footer-hero{min-height:440px;padding:60px 25px 58px}.prime-footer-script{width:min(690px,62vw)}.prime-footer-details{padding-top:64px;padding-bottom:56px}.prime-footer-contact{margin-top:58px}}
+@media(max-width:620px){.prime-footer-hero{min-height:335px;padding:40px 17px 47px}.prime-footer-script{width:min(354px,94vw)}.prime-footer-cta{margin-top:42px;min-height:42px;padding:11px 23px;font-size:14px}.prime-footer-details{padding:35px 16px 35px}.prime-footer-logo{width:min(343px,91vw)}.prime-footer-contact{margin-top:52px;font-size:15.4px;line-height:1.5}.prime-footer-dpo{font-size:15px;line-height:1.45}.prime-footer-dpo.primary{margin-top:24px}.prime-footer-dpo.substitute{margin-top:26px}.prime-footer-legal{padding:18px 20px 22px;font-size:10px}}
+@media(max-width:360px){.prime-footer-contact,.prime-footer-dpo{font-size:14px}.prime-footer-cta{font-size:13px}.prime-footer-hero{min-height:317px}}
+
 </style>
 <link rel="icon" type="image/png" href="https://static.wixstatic.com/media/54980c_ce184cae35e64d8d801448c9e061c60a~mv2.png"/>
 <script id="wix-site-script" src="https://manage.wix.com/_api/headless-business-setup/v1/headless-business/site-script.js" data-client-id="0ecdf3b9-29a2-4abe-86c0-8354cf4f671f" async></script></head>
@@ -355,7 +382,33 @@
 </section>
 <section class="cta"><div class="section-label reveal">Pronto para viver essa jornada?</div><h2 class="reveal delay1">Foz do Iguaçu e Cataratas do Niágara<br/><em>esperam por você.</em></h2><a class="gold-btn reveal delay2" href="https://api.whatsapp.com/send?phone=551131784890&amp;text=Ol%C3%A1!%20Gostaria%20de%20informa%C3%A7%C3%B5es%20sobre%20roteiros%20para%20Foz%20do%20Igua%C3%A7u%20e%20Cataratas%20do%20Ni%C3%A1gara." rel="noopener noreferrer" target="_blank">Fale com um especialista <svg viewbox="0 0 24 24"><path d="M3 12h18m-7-7 7 7-7 7"></path></svg></a><small class="reveal delay2">Uma viagem personalizada começa com uma boa conversa.</small></section>
 </main>
-<footer class="footer"><p>Projeto conceitual independente para demonstração visual. Não é uma campanha oficial, oferta de viagem ou canal de reservas da PRIMETOUR. Imagens ilustrativas. Vídeos: May Barros e Pixabay via Pexels, conforme licença Pexels.</p><a href="https://primetour.com.br" rel="noopener noreferrer" target="_blank">Conheça o site oficial da Primetour</a></footer>
+<footer class="prime-footer" aria-label="Rodapé institucional PRIMETOUR">
+<section class="prime-footer-hero" aria-labelledby="prime-footer-heading">
+<h2 id="prime-footer-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap">Viva além do óbvio</h2>
+<img class="prime-footer-script" src="assets/primetour-lettering.svg" alt="" aria-hidden="true" width="927" height="434" loading="lazy"/>
+<a class="prime-footer-cta" href="https://primetour.com.br/entre-em-contato/" target="_blank" rel="noopener noreferrer">FALE COM NOSSO TIME</a>
+</section>
+<section class="prime-footer-details" aria-label="Informações de contato PRIMETOUR">
+<img class="prime-footer-logo" src="https://primetour.com.br/wp-content/uploads/elementor/thumbs/LOGO_PRIME_HORIZONTAL-rem55p2x86cx671k94wa76girh5n5bn8a62do7n9e0.png" alt="PRIMETOUR — Viagens &amp; Experiências" width="600" height="170" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.hidden=false"/>
+<span class="prime-footer-logo-fallback" hidden>PRIMETOUR</span>
+<div class="prime-footer-contact">
+<p class="phone"><a href="tel:+551131784760">+55 11 3178-4760</a></p>
+<p>Alameda Joaquim Eugênio de Lima, 424 | 8º Andar</p>
+<p>Bela Vista | CEP 01403-001 | São Paulo / SP – Brasil</p>
+</div>
+<div class="prime-footer-dpo primary">
+<p>DPO (Encarregado de Proteção de Dados)</p>
+<p>Thiago Firmino Costa Silva</p>
+<p><a href="mailto:thiago.firmino@primetour.com.br">thiago.firmino@primetour.com.br</a></p>
+</div>
+<div class="prime-footer-dpo substitute">
+<p>DPO (Encarregado de Proteção de Dados) Substituto</p>
+<p>Raphael Brambilla de Oliveira</p>
+<p><a href="mailto:raphael.brambilla@primetour.com.br">raphael.brambilla@primetour.com.br</a></p>
+</div>
+</section>
+<div class="prime-footer-legal"><p>Projeto conceitual independente para demonstração visual. Não é uma campanha oficial, oferta de viagem ou canal de reservas da PRIMETOUR. Imagens ilustrativas. Vídeos: May Barros e Pixabay via Pexels, conforme licença Pexels. <a href="https://primetour.com.br" target="_blank" rel="noopener noreferrer">Site oficial da PRIMETOUR</a>.</p></div>
+</footer>
 <script>
 (()=>{'use strict';
 const doc=document,body=doc.body,hero=doc.querySelector('.hero'),stage=doc.querySelector('.hero-sticky'),nav=doc.querySelector('#nav'),bar=doc.querySelector('#progress'),mobile=doc.querySelector('#mobile-menu'),toggle=doc.querySelector('.nav-menu');
