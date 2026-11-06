@@ -23,8 +23,11 @@ jobs:
         run: |
           npm install --no-save playwright@1.56.1
           npx playwright install --with-deps chromium
-      - name: Verify FFmpeg
-        run: ffmpeg -version | head -1
+      - name: Install and verify FFmpeg
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y ffmpeg
+          ffmpeg -version
       - name: Capture original site and export cinematic MP4
         run: node scripts/record-showcase.mjs
       - name: Verify exact deliverable duration and size
