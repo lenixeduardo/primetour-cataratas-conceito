@@ -1,0 +1,44 @@
+name: Prime Tour — Cinematic Showcase 50s
+on:
+  push:
+    branches:
+      - video/primetour-showcase-50s
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  record:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      SHOWCASE_URL: https://primetour-cataratas.vercel.app/
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install Playwright and browser
+        run: |
+          npm install --no-save playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Verify FFmpeg
+        run: ffmpeg -version | head -1
+      - name: Capture original site and export cinematic MP4
+        run: node scripts/record-showcase.mjs
+      - name: Verify exact deliverable duration and size
+        run: |
+          ffprobe -v error -select_streams v:0 -show_entries stream=width,height,r_frame_rate -of default=noprint_wrappers=1 showcase-output/primetour-showcase-50s.mp4
+          ffprobe -v error -show_entries format=duration,size -of default=noprint_wrappers=1 showcase-output/primetour-showcase-50s.mp4
+          test "$(ffprobe -v error -show_entries stream=width -of csv=p=0 showcase-output/primetour-showcase-50s.mp4)" = 1920
+          test "$(ffprobe -v error -show_entries stream=height -of csv=p=0 showcase-output/primetour-showcase-50s.mp4)" = 1080
+      - name: Export MP4 and capture audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: primetour-showcase-50s
+          path: |
+            showcase-output/primetour-showcase-50s.mp4
+            showcase-output/capture.json
+          if-no-files-found: error
+          retention-days: 30
